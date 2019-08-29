@@ -49,13 +49,30 @@ public class RegistryConfig extends AbstractConfig {
     // client impl
     private String transporter;
 
+    /**
+     * <dubbo:protocol name="dubbo" port="20880" server="" client=""/>
+     * server netty、http
+     * client netty http
+     */
     private String server;
 
     private String client;
 
-//    容错
+//    容错 
+    /**<dubbo:service cluster=""/>
+     *<dubbo:reference cluster=""/>
+     *<dubbo:provider cluster=""/>
+     *<dubbo:consumer cluster=""/>
+     * available 使用可用的
+     * failback 失败自动恢复，后台记录失败请求，定时重发
+     * failfast 只发起一次调用，失败立即报警，一般用于非幂等操作
+     * failover 失败自动切换，重试其他服务器，一般用于读操作，重试会带来更大的延迟
+     * failsafe 失败安全，出现异常直接忽略，一般用于记录日志
+     * forking 并行调用对个服务器，只要一个成功就返回，一般用于实时性比较高的读操作，需要浪费更多服务资源
+     */
     private String cluster;
 
+    //    默认值 dubbo，服务注册分组，跨组服务不会相互影响，且不能相互调用，适合于环境隔离
     private String group;
 
     private String version;
@@ -66,22 +83,22 @@ public class RegistryConfig extends AbstractConfig {
     // session timeout in milliseconds for register center 注册中心session超时时间
     private Integer session;
 
-    // file for saving register center dynamic list  注册中心动态列表保存文件
+    // file for saving register center dynamic list  用来存储注册中心服务提供者的文件，服务重启会从这个文件加载注册中心​
     private String file;
 
     // wait time before stop 停止等待时间
     private Integer wait;
 
-    // whether to check if register center is available when boot up 检查注册中心是否可用
+    // whether to check if register center is available when boot up 检查注册的服务提供者是否可用
     private Boolean check;
 
-    // whether to allow dynamic service to register on the register center 服务是否允许动态注册到注册中心
+    // whether to allow dynamic service to register on the register center 服务是否动态注册。如果为false，服务将显示为disable，您需要手动启用它。您还需要在provider关闭时禁用它。
     private Boolean dynamic;
 
-    // whether to export service on the register center 是否允许注册服务在注册中心
+    // whether to export service on the register center 是否注册到注册中心。如果是false，只订阅，不注册。
     private Boolean register;
 
-    // whether allow to subscribe service on the register center 是否允许订阅注册中心的服务
+    // whether allow to subscribe service on the register center 是否从注册中心订阅。如果是false，只注册，不订阅。
     private Boolean subscribe;
 
     // customized parameters

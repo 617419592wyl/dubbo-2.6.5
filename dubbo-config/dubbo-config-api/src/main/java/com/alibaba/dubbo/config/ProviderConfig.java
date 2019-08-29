@@ -49,13 +49,13 @@ public class ProviderConfig extends AbstractServiceConfig {
     // context path
     private String contextpath;
 
-    // thread pool 线程池类型
+    // thread pool 线程池类型，默认值fixed，可选fixed、cached
     private String threadpool;
 
-    // thread pool size (fixed size) 线程数
+    // thread pool size (fixed size) 指定线程池线程数，默认值200
     private Integer threads;
 
-    // IO thread pool size (fixed size) io线程数
+    // IO thread pool size (fixed size) io线程数，默认cpu线程数+1
     private Integer iothreads;
 
     // thread pool queue length 队列长度
@@ -70,7 +70,7 @@ public class ProviderConfig extends AbstractServiceConfig {
     // charset
     private String charset;
 
-    // payload max length 网络传送最大字节数
+    // payload max length 请求和响应的长度限制，单位为字节，默认8m
     private Integer payload;
 
     // buffer size
@@ -79,28 +79,47 @@ public class ProviderConfig extends AbstractServiceConfig {
     // transporter
     private String transporter;
 
-    // how information gets exchanged 信息交换方式
+    // how information gets exchanged 信息交换方式 header，默认HeaderExchanger
+    // <dubbo:protocol exchanger=""/>
+//    <dubbo:provider exchanger=""/>
     private String exchanger;
 
-    // thread dispatching mode 线程转发模式
+    // thread dispatching mode 线程转发模式，默认值all
+//    all 所有消息都派发到线程池，包括请求、响应、连接事件、断开事件、心跳监测等
+//    connection 在io线程上，将连接断开事件放入队列，有序逐个执行，其他消息派发到线程池
+//    direct 所有消息都不派发到线程池，全部在io线程上直接执行
+//    execution 只请求消息派发到线程池，不含响应，响应和其他连接断开事件，心跳检测等消息，直接在io线程上执行
+//    message 只有请求响应消息派发到线程池，其他连接断开事件，心跳检测等消息，直接在io线程上执行
     private String dispatcher;
 
-    // networker
+    // networker 网络连接器
+//    multicast=com.alibaba.dubbo.remoting.p2p.support.MulticastNetworker
+//file=com.alibaba.dubbo.remoting.p2p.support.FileNetworker
     private String networker;
 
-    // server impl
+    // server impl server端协议，dubbo协议默认netty，http协议默认servlet
     private String server;
 
-    // client impl
+    // client impl client端协议，dubbo协议默认netty，http协议默认servlet
     private String client;
 
-    // supported telnet commands, separated with comma.
+    // supported telnet commands, separated with comma. 支持的telnet命令
+//    clear=com.alibaba.dubbo.remoting.telnet.support.command.ClearTelnetHandler
+//exit=com.alibaba.dubbo.remoting.telnet.support.command.ExitTelnetHandler
+//help=com.alibaba.dubbo.remoting.telnet.support.command.HelpTelnetHandler
+//status=com.alibaba.dubbo.remoting.telnet.support.command.StatusTelnetHandler
+//log=com.alibaba.dubbo.remoting.telnet.support.command.LogTelnetHandler
     private String telnet;
 
     // command line prompt
     private String prompt;
 
-    // status check
+    // status check 默认支持 memory 内存状态检查，load 加载状态检查
+    //​RegistryStatusChecker 服务注册状态检查
+    //ServerStatusChecker server状态检查
+    //SpringStatusChecker spring容器状态检查
+    //ThreadPoolStatusChecker 线程池状态检查
+//    这四中spi没有继承进来，需要自己扩展
     private String status;
 
     // wait time when stop 停止等待时间

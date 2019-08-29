@@ -70,6 +70,11 @@ public class ApplicationConfig extends AbstractConfig {
     private Boolean isDefault;
 
     // directory for saving thread dump 线程堆栈保存文件夹
+    /**
+     * <dubbo:application>
+     *     <dubbo:parameter key="dump.directory" value="/home/logs/dump"></dubbo:parameter>
+     * </dubbo:application>
+     */
     private String dumpDirectory;
 
     // whether to enable qos or not
@@ -91,7 +96,7 @@ public class ApplicationConfig extends AbstractConfig {
         setName(name);
     }
 
-//    application是必须的
+    //    application是必须的
     @Parameter(key = Constants.APPLICATION_KEY, required = true)
     public String getName() {
         return name;
@@ -212,7 +217,7 @@ public class ApplicationConfig extends AbstractConfig {
         this.isDefault = isDefault;
     }
 
-//    dump.directory 堆栈路径
+    //    dump.directory 堆栈路径
     @Parameter(key = Constants.DUMP_DIRECTORY)
     public String getDumpDirectory() {
         return dumpDirectory;
@@ -222,7 +227,7 @@ public class ApplicationConfig extends AbstractConfig {
         this.dumpDirectory = dumpDirectory;
     }
 
-//    qos.enable 动态控制服是否开启
+    //    qos.enable 动态控制服是否开启
     @Parameter(key = Constants.QOS_ENABLE)
     public Boolean getQosEnable() {
         return qosEnable;
@@ -232,7 +237,7 @@ public class ApplicationConfig extends AbstractConfig {
         this.qosEnable = qosEnable;
     }
 
-//    动态控制服务端口qos.port
+    //    动态控制服务端口qos.port
     @Parameter(key = Constants.QOS_PORT)
     public Integer getQosPort() {
         return qosPort;
