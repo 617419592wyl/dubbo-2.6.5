@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.alibaba.dubbo.config.AbstractConfig</OriginalElement>
+  <nodes>
+    <node x="0.0" y="785.0">com.alibaba.dubbo.config.spring.beans.factory.annotation.ServiceAnnotationBeanPostProcessor</node>
+    <node x="219.35294117647047" y="168.0">com.alibaba.dubbo.config.AbstractInterfaceConfig</node>
+    <node x="166.0" y="326.0">com.alibaba.dubbo.config.ReferenceConfig</node>
+    <node x="387.75" y="558.0">com.alibaba.dubbo.config.spring.context.annotation.EnableDubbo</node>
+    <node x="448.3529411764705" y="168.0">com.alibaba.dubbo.config.MethodConfig</node>
+    <node x="564.0" y="933.0">com.alibaba.dubbo.config.spring.schema.DubboBeanDefinitionParser</node>
+    <node x="941.0" y="1229.0">com.alibaba.dubbo.config.annotation.Reference</node>
+    <node x="345.0" y="711.0">com.alibaba.dubbo.config.spring.beans.factory.annotation.DubboConfigBindingBeanPostProcessor</node>
+    <node x="0.0" y="1303.0">com.alibaba.dubbo.config.annotation.Service</node>
+    <node x="726.5" y="558.0">com.alibaba.dubbo.config.spring.beans.factory.annotation.ReferenceBeanBuilder</node>
+    <node x="890.0" y="1155.0">com.alibaba.dubbo.config.model.ApplicationModel</node>
+    <node x="683.0" y="711.0">com.alibaba.dubbo.config.spring.context.annotation.DubboClassPathBeanDefinitionScanner</node>
+    <node x="0.0" y="711.0">com.alibaba.dubbo.config.spring.beans.factory.annotation.ReferenceAnnotationBeanPostProcessor</node>
+    <node x="674.0" y="479.0">com.alibaba.dubbo.config.spring.beans.factory.annotation.AbstractAnnotationConfigBeanBuilder</node>
+    <node x="462.0" y="479.0">com.alibaba.dubbo.config.spring.context.annotation.EnableDubboConfig</node>
+    <node x="53.25" y="247.0">com.alibaba.dubbo.config.AbstractReferenceConfig</node>
+    <node x="444.75" y="0.0">com.alibaba.dubbo.config.AbstractConfig</node>
+    <node x="389.0" y="1229.0">com.alibaba.dubbo.config.model.ProviderModel</node>
+    <node x="173.10294117647047" y="89.0">com.alibaba.dubbo.config.ModuleConfig</node>
+    <node x="0.0" y="558.0">com.alibaba.dubbo.config.spring.context.properties.AbstractDubboConfigBinder</node>
+    <node x="268.0" y="479.0">com.alibaba.dubbo.config.spring.context.annotation.DubboComponentScan</node>
+    <node x="0.0" y="1007.0">com.alibaba.dubbo.config.spring.context.annotation.DubboConfigConfiguration</node>
+    <node x="254.0" y="1081.0">com.alibaba.dubbo.config.spring.extension.SpringExtensionFactory</node>
+    <node x="346.0" y="405.0">com.alibaba.dubbo.config.spring.ServiceBean</node>
+    <node x="28.0" y="479.0">com.alibaba.dubbo.config.spring.context.properties.DubboConfigBinder</node>
+    <node x="0.0" y="933.0">com.alibaba.dubbo.config.spring.context.annotation.DubboConfigBindingRegistrar</node>
+    <node x="501.0" y="1081.0">com.alibaba.dubbo.config.spring.beans.factory.annotation.ServiceBeanNameBuilder</node>
+    <node x="0.0" y="1155.0">com.alibaba.dubbo.config.model.ConsumerMethodModel</node>
+    <node x="261.0" y="1007.0">org.apache.dubbo.config.spring.initializer.DubboApplicationListener</node>
+    <node x="923.0" y="859.0">com.alibaba.dubbo.config.spring.context.annotation.DubboConfigBindingsRegistrar</node>
+    <node x="522.0" y="1007.0">com.alibaba.dubbo.config.spring.context.annotation.EnableDubboConfigBinding</node>
+    <node x="678.0" y="1155.0">com.alibaba.dubbo.config.DubboShutdownHook</node>
+    <node x="1097.0" y="1229.0">com.alibaba.dubbo.config.support.Parameter</node>
+    <node x="533.1029411764705" y="89.0">com.alibaba.dubbo.config.ApplicationConfig</node>
+    <node x="0.0" y="859.0">com.alibaba.dubbo.config.spring.beans.factory.annotation.AnnotationPropertyValuesAdapter</node>
+    <node x="0.0" y="1229.0">com.alibaba.dubbo.config.spring.util.AnnotationUtils</node>
+    <node x="226.0" y="1155.0">com.alibaba.dubbo.config.spring.status.SpringStatusChecker</node>
+    <node x="832.0" y="933.0">com.alibaba.dubbo.config.spring.context.annotation.EnableDubboConfigBindings</node>
+    <node x="0.0" y="1081.0">com.alibaba.dubbo.config.spring.status.DataSourceStatusChecker</node>
+    <node x="620.0" y="859.0">com.alibaba.dubbo.config.spring.schema.AnnotationBeanDefinitionParser</node>
+    <node x="879.1029411764705" y="89.0">com.alibaba.dubbo.config.RegistryConfig</node>
+    <node x="498.0" y="326.0">com.alibaba.dubbo.config.ProviderConfig</node>
+    <node x="748.0" y="1081.0">com.alibaba.dubbo.config.spring.schema.DubboNamespaceHandler</node>
+    <node x="392.25" y="247.0">com.alibaba.dubbo.config.AbstractServiceConfig</node>
+    <node x="339.0" y="326.0">com.alibaba.dubbo.config.ServiceConfig</node>
+    <node x="662.0" y="785.0">com.alibaba.dubbo.config.spring.context.annotation.DubboConfigConfigurationSelector</node>
+    <node x="173.0" y="405.0">com.alibaba.dubbo.config.spring.ReferenceBean</node>
+    <node x="7.102941176470495" y="89.0">com.alibaba.dubbo.config.ProtocolConfig</node>
+    <node x="573.0" y="1229.0">com.alibaba.dubbo.config.model.ConsumerModel</node>
+    <node x="452.0" y="1155.0">com.alibaba.dubbo.config.model.ProviderMethodModel</node>
+    <node x="0.0" y="326.0">com.alibaba.dubbo.config.ConsumerConfig</node>
+    <node x="325.1029411764705" y="89.0">com.alibaba.dubbo.config.AbstractMethodConfig</node>
+    <node x="757.0" y="1229.0">com.alibaba.dubbo.config.spring.util.BeanRegistrar</node>
+    <node x="198.0" y="1229.0">com.alibaba.dubbo.config.ArgumentConfig</node>
+    <node x="988.0" y="1081.0">com.alibaba.dubbo.config.utils.ReferenceConfigCache</node>
+    <node x="310.0" y="859.0">com.alibaba.dubbo.config.invoker.DelegateProviderMetaDataInvoker</node>
+    <node x="282.0" y="933.0">com.alibaba.dubbo.config.spring.context.annotation.DubboComponentScanRegistrar</node>
+    <node x="331.0" y="785.0">org.apache.dubbo.config.spring.initializer.DubboApplicationContextInitializer</node>
+    <node x="783.0" y="1007.0">com.alibaba.dubbo.config.spring.context.event.ServiceBeanExportedEvent</node>
+    <node x="720.1029411764705" y="89.0">com.alibaba.dubbo.config.MonitorConfig</node>
+    <node x="3.5" y="637.0">com.alibaba.dubbo.config.spring.context.properties.DefaultDubboConfigBinder</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.alibaba.dubbo.config.ReferenceConfig" target="com.alibaba.dubbo.config.AbstractReferenceConfig">
+      <point x="0.0" y="-14.5" />
+      <point x="242.5" y="301.0" />
+      <point x="210.0" y="301.0" />
+      <point x="52.25" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.config.AbstractReferenceConfig" target="com.alibaba.dubbo.config.AbstractInterfaceConfig">
+      <point x="0.0" y="-14.5" />
+      <point x="157.75" y="222.0" />
+      <point x="271.6029411764705" y="222.0" />
+      <point x="-52.25" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.config.MonitorConfig" target="com.alibaba.dubbo.config.AbstractConfig">
+      <point x="0.0" y="-14.5" />
+      <point x="789.6029411764705" y="59.0" />
+      <point x="554.25" y="59.0" />
+      <point x="36.5" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.config.spring.context.properties.DefaultDubboConfigBinder" target="com.alibaba.dubbo.config.spring.context.properties.AbstractDubboConfigBinder">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.config.spring.ReferenceBean" target="com.alibaba.dubbo.config.ReferenceConfig">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.config.ProviderConfig" target="com.alibaba.dubbo.config.AbstractServiceConfig">
+      <point x="0.0" y="-14.5" />
+      <point x="571.0" y="301.0" />
+      <point x="538.5" y="301.0" />
+      <point x="48.75" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.config.MethodConfig" target="com.alibaba.dubbo.config.AbstractMethodConfig">
+      <point x="0.0" y="-14.5" />
+      <point x="514.3529411764705" y="143.0" />
+      <point x="466.1029411764705" y="143.0" />
+      <point x="47.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.config.spring.context.annotation.EnableDubbo" target="com.alibaba.dubbo.config.spring.context.annotation.DubboComponentScan">
+      <point x="-31.25" y="-14.5" />
+      <point x="419.0" y="533.0" />
+      <point x="355.0" y="533.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.config.RegistryConfig" target="com.alibaba.dubbo.config.AbstractConfig">
+      <point x="1.1368683772161603E-13" y="-14.5" />
+      <point x="952.1029411764706" y="49.0" />
+      <point x="578.5833333333333" y="49.0" />
+      <point x="60.83333333333326" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.config.spring.ServiceBean" target="com.alibaba.dubbo.config.ServiceConfig">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.config.spring.beans.factory.annotation.ReferenceBeanBuilder" target="com.alibaba.dubbo.config.spring.beans.factory.annotation.AbstractAnnotationConfigBeanBuilder">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.config.ModuleConfig" target="com.alibaba.dubbo.config.AbstractConfig">
+      <point x="-2.8421709430404007E-14" y="-14.5" />
+      <point x="239.10294117647044" y="59.0" />
+      <point x="481.25" y="59.0" />
+      <point x="-36.5" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.config.ProtocolConfig" target="com.alibaba.dubbo.config.AbstractConfig">
+      <point x="0.0" y="-14.5" />
+      <point x="80.1029411764705" y="49.0" />
+      <point x="456.91666666666674" y="49.0" />
+      <point x="-60.833333333333314" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.config.AbstractInterfaceConfig" target="com.alibaba.dubbo.config.AbstractMethodConfig">
+      <point x="0.0" y="-14.5" />
+      <point x="323.8529411764705" y="143.0" />
+      <point x="372.1029411764705" y="143.0" />
+      <point x="-47.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.config.spring.context.properties.AbstractDubboConfigBinder" target="com.alibaba.dubbo.config.spring.context.properties.DubboConfigBinder">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.config.spring.context.annotation.EnableDubbo" target="com.alibaba.dubbo.config.spring.context.annotation.EnableDubboConfig">
+      <point x="31.25" y="-14.5" />
+      <point x="481.5" y="533.0" />
+      <point x="545.5" y="533.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.config.ConsumerConfig" target="com.alibaba.dubbo.config.AbstractReferenceConfig">
+      <point x="0.0" y="-14.5" />
+      <point x="73.0" y="301.0" />
+      <point x="105.5" y="301.0" />
+      <point x="-52.25" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.config.ServiceConfig" target="com.alibaba.dubbo.config.AbstractServiceConfig">
+      <point x="0.0" y="-14.5" />
+      <point x="408.5" y="301.0" />
+      <point x="441.0" y="301.0" />
+      <point x="-48.75" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.config.ApplicationConfig" target="com.alibaba.dubbo.config.AbstractConfig">
+      <point x="0.0" y="-14.5" />
+      <point x="616.6029411764705" y="69.0" />
+      <point x="529.9166666666666" y="69.0" />
+      <point x="12.166666666666629" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.config.AbstractServiceConfig" target="com.alibaba.dubbo.config.AbstractInterfaceConfig">
+      <point x="0.0" y="-14.5" />
+      <point x="489.75" y="222.0" />
+      <point x="376.1029411764705" y="222.0" />
+      <point x="52.25" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.config.AbstractMethodConfig" target="com.alibaba.dubbo.config.AbstractConfig">
+      <point x="0.0" y="-14.5" />
+      <point x="419.1029411764705" y="69.0" />
+      <point x="505.58333333333337" y="69.0" />
+      <point x="-12.166666666666686" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="530.0" y="1101.0" />
+  <SelectedNodes>
+    <node>com.alibaba.dubbo.config.model.ProviderModel</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

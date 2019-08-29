@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.alibaba.dubbo.cache.Cache</OriginalElement>
+  <nodes>
+    <node x="232.49999999999997" y="0.0">com.alibaba.dubbo.cache.CacheFactory</node>
+    <node x="219.0" y="311.0">com.alibaba.dubbo.cache.support.threadlocal.ThreadLocalCache</node>
+    <node x="204.49999999999997" y="79.0">com.alibaba.dubbo.cache.support.AbstractCacheFactory</node>
+    <node x="368.0" y="464.0">com.alibaba.dubbo.validation.MethodValidated</node>
+    <node x="399.0" y="311.0">com.alibaba.dubbo.cache.support.jcache.JCache</node>
+    <node x="0.0" y="311.0">com.alibaba.dubbo.validation.support.AbstractValidation</node>
+    <node x="0.0" y="543.0">com.alibaba.dubbo.validation.support.jvalidation.JValidator</node>
+    <node x="24.5" y="390.0">com.alibaba.dubbo.validation.support.jvalidation.JValidation</node>
+    <node x="509.0" y="311.0">com.alibaba.dubbo.cache.support.lru.LruCache</node>
+    <node x="0.0" y="617.0">com.alibaba.dubbo.cache.filter.CacheFilter</node>
+    <node x="402.5" y="232.0">com.alibaba.dubbo.cache.Cache</node>
+    <node x="3.5" y="464.0">com.alibaba.dubbo.validation.Validator</node>
+    <node x="388.0" y="158.0">com.alibaba.dubbo.cache.support.lru.LruCacheFactory</node>
+    <node x="163.0" y="464.0">com.alibaba.dubbo.validation.filter.ValidationFilter</node>
+    <node x="28.0" y="232.0">com.alibaba.dubbo.validation.Validation</node>
+    <node x="0.0" y="158.0">com.alibaba.dubbo.cache.support.threadlocal.ThreadLocalCacheFactory</node>
+    <node x="228.99999999999997" y="158.0">com.alibaba.dubbo.cache.support.jcache.JCacheFactory</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.alibaba.dubbo.validation.support.jvalidation.JValidator" target="com.alibaba.dubbo.validation.Validator">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.cache.support.AbstractCacheFactory" target="com.alibaba.dubbo.cache.CacheFactory">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.cache.support.lru.LruCacheFactory" target="com.alibaba.dubbo.cache.support.AbstractCacheFactory">
+      <point x="0.0" y="-14.5" />
+      <point x="464.5" y="133.0" />
+      <point x="361.16666666666663" y="133.0" />
+      <point x="62.66666666666663" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.cache.support.jcache.JCache" target="com.alibaba.dubbo.cache.Cache">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.cache.support.lru.LruCache" target="com.alibaba.dubbo.cache.Cache">
+      <point x="0.0" y="-14.5" />
+      <point x="561.0" y="286.0" />
+      <point x="471.6666666666667" y="286.0" />
+      <point x="27.666666666666686" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.cache.support.threadlocal.ThreadLocalCache" target="com.alibaba.dubbo.cache.Cache">
+      <point x="0.0" y="-14.5" />
+      <point x="299.0" y="286.0" />
+      <point x="416.33333333333337" y="286.0" />
+      <point x="-27.666666666666657" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.validation.support.jvalidation.JValidation" target="com.alibaba.dubbo.validation.support.AbstractValidation">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.cache.support.threadlocal.ThreadLocalCacheFactory" target="com.alibaba.dubbo.cache.support.AbstractCacheFactory">
+      <point x="0.0" y="-14.5" />
+      <point x="104.5" y="133.0" />
+      <point x="235.83333333333331" y="133.0" />
+      <point x="-62.66666666666666" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.cache.support.jcache.JCacheFactory" target="com.alibaba.dubbo.cache.support.AbstractCacheFactory">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.validation.support.AbstractValidation" target="com.alibaba.dubbo.validation.Validation">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="42.0" y="334.5" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.alibaba.dubbo.monitor.Monitor</OriginalElement>
+  <nodes>
+    <node x="0.0" y="232.0">com.alibaba.dubbo.monitor.support.MonitorFilter</node>
+    <node x="247.0" y="0.0">com.alibaba.dubbo.monitor.MonitorService</node>
+    <node x="271.5" y="79.0">com.alibaba.dubbo.monitor.Monitor</node>
+    <node x="10.5" y="158.0">com.alibaba.dubbo.monitor.dubbo.DubboMonitorFactory</node>
+    <node x="254.0" y="158.0">com.alibaba.dubbo.monitor.dubbo.DubboMonitor</node>
+    <node x="28.0" y="0.0">com.alibaba.dubbo.monitor.MonitorFactory</node>
+    <node x="0.0" y="79.0">com.alibaba.dubbo.monitor.support.AbstractMonitorFactory</node>
+    <node x="184.0" y="232.0">com.alibaba.dubbo.monitor.dubbo.Statistics</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.alibaba.dubbo.monitor.support.AbstractMonitorFactory" target="com.alibaba.dubbo.monitor.MonitorFactory">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.monitor.dubbo.DubboMonitorFactory" target="com.alibaba.dubbo.monitor.support.AbstractMonitorFactory">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.monitor.dubbo.DubboMonitor" target="com.alibaba.dubbo.monitor.Monitor">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.monitor.Monitor" target="com.alibaba.dubbo.monitor.MonitorService">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="121.0" y="130.5" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

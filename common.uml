@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.alibaba.dubbo.common.Constants</OriginalElement>
+  <nodes>
+    <node x="21.0" y="89.0">com.alibaba.dubbo.common.store.DataStore</node>
+    <node x="183.5" y="89.0">com.alibaba.dubbo.common.status.StatusChecker</node>
+    <node x="2466.0" y="168.0">com.alibaba.dubbo.common.threadpool.support.cached.CachedThreadPool</node>
+    <node x="731.0" y="1071.0">com.alibaba.dubbo.common.utils.LogUtil</node>
+    <node x="389.0" y="849.0">com.alibaba.dubbo.common.threadlocal.InternalThread</node>
+    <node x="170.0" y="997.0">com.alibaba.dubbo.common.compiler.support.ClassUtils</node>
+    <node x="801.0" y="997.0">com.alibaba.dubbo.common.utils.PojoUtils</node>
+    <node x="1257.5" y="247.0">com.alibaba.dubbo.common.compiler.support.JavassistCompiler</node>
+    <node x="957.0" y="997.0">com.alibaba.dubbo.common.utils.LogHelper</node>
+    <node x="533.0" y="1145.0">com.alibaba.dubbo.common.bytecode.Proxy</node>
+    <node x="0.0" y="400.0">com.alibaba.dubbo.common.logger.support.FailsafeLogger</node>
+    <node x="741.0" y="627.0">com.alibaba.dubbo.common.bytecode.NoSuchMethodException</node>
+    <node x="878.0" y="923.0">com.alibaba.dubbo.common.utils.ClassHelper</node>
+    <node x="997.9999999999999" y="168.0">com.alibaba.dubbo.common.compiler.support.AdaptiveCompiler</node>
+    <node x="538.0" y="923.0">com.alibaba.dubbo.common.io.StreamUtils</node>
+    <node x="764.0" y="849.0">com.alibaba.dubbo.common.extension.DisableInject</node>
+    <node x="0.0" y="553.0">com.alibaba.dubbo.common.concurrent.ListenableFutureTask</node>
+    <node x="0.0" y="701.0">com.alibaba.dubbo.common.utils.AtomicPositiveInteger</node>
+    <node x="580.0" y="849.0">com.alibaba.dubbo.common.concurrent.ExecutionList</node>
+    <node x="589.0" y="1071.0">com.alibaba.dubbo.common.bytecode.Wrapper</node>
+    <node x="1048.0" y="923.0">com.alibaba.dubbo.common.utils.StringUtils</node>
+    <node x="761.9999999999999" y="168.0">com.alibaba.dubbo.common.extension.factory.AdaptiveExtensionFactory</node>
+    <node x="14.0" y="474.0">com.alibaba.dubbo.common.concurrent.ListenableFuture</node>
+    <node x="743.0" y="400.0">com.alibaba.dubbo.common.threadlocal.NamedInternalThreadFactory</node>
+    <node x="515.0" y="474.0">com.alibaba.dubbo.common.io.UnsafeByteArrayInputStream</node>
+    <node x="447.0" y="1071.0">com.alibaba.dubbo.common.Version</node>
+    <node x="790.0" y="474.0">com.alibaba.dubbo.common.bytecode.NoSuchPropertyException</node>
+    <node x="240.0" y="701.0">com.alibaba.dubbo.common.threadlocal.InternalThreadLocal</node>
+    <node x="0.0" y="1071.0">com.alibaba.dubbo.common.utils.LRUCache</node>
+    <node x="421.2499999999999" y="89.0">com.alibaba.dubbo.common.extension.Activate</node>
+    <node x="1178.0" y="168.0">com.alibaba.dubbo.common.compiler.support.AbstractCompiler</node>
+    <node x="333.0" y="997.0">com.alibaba.dubbo.common.Constants</node>
+    <node x="873.0" y="1071.0">com.alibaba.dubbo.common.utils.IOUtils</node>
+    <node x="708.0" y="923.0">com.alibaba.dubbo.common.status.support.StatusUtils</node>
+    <node x="2646.0" y="168.0">com.alibaba.dubbo.common.threadpool.support.eager.EagerThreadPool</node>
+    <node x="948.0" y="849.0">com.alibaba.dubbo.common.logger.LoggerFactory</node>
+    <node x="373.9999999999999" y="168.0">com.alibaba.dubbo.common.status.support.LoadStatusChecker</node>
+    <node x="0.0" y="1219.0">com.alibaba.dubbo.common.URL</node>
+    <node x="184.0" y="923.0">com.alibaba.dubbo.common.utils.ExecutorUtil</node>
+    <node x="855.0" y="775.0">com.alibaba.dubbo.common.extension.ExtensionLoader</node>
+    <node x="661.0" y="1145.0">com.alibaba.dubbo.common.io.Bytes</node>
+    <node x="135.0" y="1145.0">com.alibaba.dubbo.common.utils.Assert</node>
+    <node x="1732.0" y="168.0">com.alibaba.dubbo.common.logger.jdk.JdkLoggerAdapter</node>
+    <node x="560.9999999999999" y="168.0">com.alibaba.dubbo.common.extension.factory.SpiExtensionFactory</node>
+    <node x="438.0" y="775.0">com.alibaba.dubbo.common.utils.ConcurrentHashSet</node>
+    <node x="0.0" y="168.0">com.alibaba.dubbo.common.store.support.SimpleDataStore</node>
+    <node x="321.5" y="321.0">com.alibaba.dubbo.common.logger.Logger</node>
+    <node x="2293.0" y="168.0">com.alibaba.dubbo.common.threadpool.support.fixed.FixedThreadPool</node>
+    <node x="254.0" y="627.0">com.alibaba.dubbo.common.threadlocal.InternalThreadLocalMap</node>
+    <node x="0.0" y="627.0">com.alibaba.dubbo.common.threadpool.support.eager.EagerThreadPoolExecutor</node>
+    <node x="645.0" y="997.0">com.alibaba.dubbo.common.threadpool.support.eager.TaskQueue</node>
+    <node x="311.0" y="400.0">com.alibaba.dubbo.common.logger.jcl.JclLogger</node>
+    <node x="173.0" y="168.0">com.alibaba.dubbo.common.status.support.MemoryStatusChecker</node>
+    <node x="573.0" y="400.0">com.alibaba.dubbo.common.logger.slf4j.Slf4jLogger</node>
+    <node x="1552.0" y="168.0">com.alibaba.dubbo.common.logger.jcl.JclLoggerAdapter</node>
+    <node x="405.0" y="1145.0">com.alibaba.dubbo.common.bytecode.Mixin</node>
+    <node x="917.0" y="1145.0">com.alibaba.dubbo.common.utils.Stack</node>
+    <node x="771.0" y="321.0">com.alibaba.dubbo.common.utils.NamedThreadFactory</node>
+    <node x="114.0" y="1219.0">com.alibaba.dubbo.common.utils.Log</node>
+    <node x="650.0" y="775.0">com.alibaba.dubbo.common.beanutil.JavaBeanAccessor</node>
+    <node x="927.2499999999999" y="0.0">com.alibaba.dubbo.common.extension.SPI</node>
+    <node x="981.0" y="627.0">com.alibaba.dubbo.common.threadpool.support.AbortPolicyWithReport</node>
+    <node x="361.0" y="923.0">com.alibaba.dubbo.common.utils.ReflectUtils</node>
+    <node x="789.0" y="1145.0">com.alibaba.dubbo.common.logger.Level</node>
+    <node x="911.0" y="701.0">com.alibaba.dubbo.common.extension.support.ActivateComparator</node>
+    <node x="0.0" y="997.0">com.alibaba.dubbo.common.utils.ConfigUtils</node>
+    <node x="0.0" y="849.0">com.alibaba.dubbo.common.utils.CollectionUtils</node>
+    <node x="270.0" y="1145.0">com.alibaba.dubbo.common.utils.Holder</node>
+    <node x="0.0" y="775.0">com.alibaba.dubbo.common.io.UnsafeStringWriter</node>
+    <node x="1112.5" y="247.0">com.alibaba.dubbo.common.compiler.support.JdkCompiler</node>
+    <node x="1015.0" y="1071.0">com.alibaba.dubbo.common.utils.JVMUtil</node>
+    <node x="149.0" y="1071.0">com.alibaba.dubbo.common.utils.UrlUtils</node>
+    <node x="2106.0" y="168.0">com.alibaba.dubbo.common.threadpool.support.limited.LimitedThreadPool</node>
+    <node x="645.7019230769229" y="89.0">com.alibaba.dubbo.common.extension.ExtensionFactory</node>
+    <node x="1126.2019230769229" y="89.0">com.alibaba.dubbo.common.compiler.Compiler</node>
+    <node x="298.0" y="1071.0">com.alibaba.dubbo.common.utils.NetUtils</node>
+    <node x="233.0" y="474.0">com.alibaba.dubbo.common.io.UnsafeByteArrayOutputStream</node>
+    <node x="692.0" y="701.0">com.alibaba.dubbo.common.beanutil.JavaBeanDescriptor</node>
+    <node x="1912.0" y="168.0">com.alibaba.dubbo.common.logger.slf4j.Slf4jLoggerAdapter</node>
+    <node x="501.0" y="627.0">com.alibaba.dubbo.common.beanutil.JavaBeanSerializeUtil</node>
+    <node x="219.0" y="775.0">com.alibaba.dubbo.common.io.UnsafeStringReader</node>
+    <node x="166.0" y="400.0">com.alibaba.dubbo.common.logger.log4j.Log4jLogger</node>
+    <node x="1652.5" y="89.0">com.alibaba.dubbo.common.logger.LoggerAdapter</node>
+    <node x="2398.75" y="89.0">com.alibaba.dubbo.common.threadpool.ThreadPool</node>
+    <node x="466.0" y="701.0">com.alibaba.dubbo.common.utils.CompatibleTypeUtils</node>
+    <node x="489.0" y="997.0">com.alibaba.dubbo.common.Resetable</node>
+    <node x="1045.0" y="1145.0">com.alibaba.dubbo.common.Node</node>
+    <node x="442.0" y="400.0">com.alibaba.dubbo.common.logger.jdk.JdkLogger</node>
+    <node x="198.0" y="849.0">com.alibaba.dubbo.common.bytecode.ClassGenerator</node>
+    <node x="928.9999999999999" y="89.0">com.alibaba.dubbo.common.extension.Adaptive</node>
+    <node x="0.0" y="923.0">com.alibaba.dubbo.common.utils.DubboAppender</node>
+    <node x="0.0" y="1145.0">com.alibaba.dubbo.common.status.Status</node>
+    <node x="1358.0" y="168.0">com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.alibaba.dubbo.common.extension.factory.AdaptiveExtensionFactory" target="com.alibaba.dubbo.common.extension.ExtensionFactory">
+      <point x="-54.0" y="-14.5" />
+      <point x="815.9999999999999" y="148.0" />
+      <point x="765.7019230769229" y="148.0" />
+      <point x="40.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.logger.LoggerAdapter" target="com.alibaba.dubbo.common.extension.SPI">
+      <point x="0.0" y="-14.5" />
+      <point x="1722.0" y="59.0" />
+      <point x="978.9999999999999" y="59.0" />
+      <point x="17.25" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter" target="com.alibaba.dubbo.common.logger.LoggerAdapter">
+      <point x="0.0" y="-14.5" />
+      <point x="1445.0" y="138.0" />
+      <point x="1669.875" y="138.0" />
+      <point x="-52.125" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.store.DataStore" target="com.alibaba.dubbo.common.extension.SPI">
+      <point x="0.0" y="-14.5" />
+      <point x="76.5" y="49.0" />
+      <point x="932.9999999999999" y="49.0" />
+      <point x="-28.75" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.status.StatusChecker" target="com.alibaba.dubbo.common.extension.SPI">
+      <point x="0.0" y="-14.5" />
+      <point x="253.0" y="59.0" />
+      <point x="944.4999999999999" y="59.0" />
+      <point x="-17.25" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.threadpool.support.limited.LimitedThreadPool" target="com.alibaba.dubbo.common.threadpool.ThreadPool">
+      <point x="0.0" y="-14.5" />
+      <point x="2189.5" y="138.0" />
+      <point x="2413.5" y="138.0" />
+      <point x="-44.25" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.extension.factory.SpiExtensionFactory" target="com.alibaba.dubbo.common.extension.ExtensionFactory">
+      <point x="0.0" y="-14.5" />
+      <point x="651.4999999999999" y="148.0" />
+      <point x="685.7019230769229" y="148.0" />
+      <point x="-40.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.concurrent.ListenableFutureTask" target="com.alibaba.dubbo.common.concurrent.ListenableFuture">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.logger.log4j.Log4jLogger" target="com.alibaba.dubbo.common.logger.Logger">
+      <point x="0.0" y="-14.5" />
+      <point x="228.5" y="380.0" />
+      <point x="348.5" y="380.0" />
+      <point x="-18.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.logger.jdk.JdkLogger" target="com.alibaba.dubbo.common.logger.Logger">
+      <point x="0.0" y="-14.5" />
+      <point x="497.5" y="380.0" />
+      <point x="384.5" y="380.0" />
+      <point x="18.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.logger.slf4j.Slf4jLoggerAdapter" target="com.alibaba.dubbo.common.logger.LoggerAdapter">
+      <point x="0.0" y="-14.5" />
+      <point x="1999.0" y="138.0" />
+      <point x="1774.125" y="138.0" />
+      <point x="52.125" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.extension.ExtensionFactory" target="com.alibaba.dubbo.common.extension.SPI">
+      <point x="0.0" y="-14.5" />
+      <point x="725.7019230769229" y="69.0" />
+      <point x="955.9999999999999" y="69.0" />
+      <point x="-5.75" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.store.support.SimpleDataStore" target="com.alibaba.dubbo.common.store.DataStore">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.compiler.support.AdaptiveCompiler" target="com.alibaba.dubbo.common.extension.Adaptive">
+      <point x="-40.0" y="-14.5" />
+      <point x="1038.0" y="148.0" />
+      <point x="1006.9999999999999" y="148.0" />
+      <point x="26.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.compiler.Compiler" target="com.alibaba.dubbo.common.extension.SPI">
+      <point x="0.0" y="-14.5" />
+      <point x="1178.2019230769229" y="69.0" />
+      <point x="967.4999999999999" y="69.0" />
+      <point x="5.75" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.threadpool.support.fixed.FixedThreadPool" target="com.alibaba.dubbo.common.threadpool.ThreadPool">
+      <point x="0.0" y="-14.5" />
+      <point x="2369.5" y="148.0" />
+      <point x="2443.0" y="148.0" />
+      <point x="-14.75" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.logger.jcl.JclLogger" target="com.alibaba.dubbo.common.logger.Logger">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.logger.jdk.JdkLoggerAdapter" target="com.alibaba.dubbo.common.logger.LoggerAdapter">
+      <point x="0.0" y="-14.5" />
+      <point x="1812.0" y="148.0" />
+      <point x="1739.375" y="148.0" />
+      <point x="17.375" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.status.support.MemoryStatusChecker" target="com.alibaba.dubbo.common.status.StatusChecker">
+      <point x="-45.25" y="-14.5" />
+      <point x="-34.75" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.compiler.support.AbstractCompiler" target="com.alibaba.dubbo.common.compiler.Compiler">
+      <point x="0.0" y="-14.5" />
+      <point x="1258.0" y="148.0" />
+      <point x="1204.2019230769229" y="148.0" />
+      <point x="26.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.logger.slf4j.Slf4jLogger" target="com.alibaba.dubbo.common.logger.Logger">
+      <point x="0.0" y="-14.5" />
+      <point x="635.5" y="370.0" />
+      <point x="402.5" y="370.0" />
+      <point x="36.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.threadpool.support.cached.CachedThreadPool" target="com.alibaba.dubbo.common.threadpool.ThreadPool">
+      <point x="0.0" y="-14.5" />
+      <point x="2546.0" y="148.0" />
+      <point x="2472.5" y="148.0" />
+      <point x="14.75" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.threadpool.ThreadPool" target="com.alibaba.dubbo.common.extension.SPI">
+      <point x="0.0" y="-14.5" />
+      <point x="2457.75" y="49.0" />
+      <point x="990.4999999999999" y="49.0" />
+      <point x="28.75" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.status.support.LoadStatusChecker" target="com.alibaba.dubbo.common.extension.Activate">
+      <point x="41.75" y="-14.5" />
+      <point x="26.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.status.support.MemoryStatusChecker" target="com.alibaba.dubbo.common.extension.Activate">
+      <point x="45.25" y="-14.5" />
+      <point x="308.75" y="148.0" />
+      <point x="447.2499999999999" y="148.0" />
+      <point x="-26.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.threadpool.support.eager.EagerThreadPool" target="com.alibaba.dubbo.common.threadpool.ThreadPool">
+      <point x="0.0" y="-14.5" />
+      <point x="2722.5" y="138.0" />
+      <point x="2502.0" y="138.0" />
+      <point x="44.25" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.compiler.support.JdkCompiler" target="com.alibaba.dubbo.common.compiler.support.AbstractCompiler">
+      <point x="0.0" y="-14.5" />
+      <point x="1175.0" y="222.0" />
+      <point x="1218.0" y="222.0" />
+      <point x="-40.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.extension.factory.AdaptiveExtensionFactory" target="com.alibaba.dubbo.common.extension.Adaptive">
+      <point x="54.0" y="-14.5" />
+      <point x="923.9999999999999" y="148.0" />
+      <point x="954.9999999999999" y="148.0" />
+      <point x="-26.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.compiler.support.JavassistCompiler" target="com.alibaba.dubbo.common.compiler.support.AbstractCompiler">
+      <point x="0.0" y="-14.5" />
+      <point x="1341.0" y="222.0" />
+      <point x="1298.0" y="222.0" />
+      <point x="40.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.logger.jcl.JclLoggerAdapter" target="com.alibaba.dubbo.common.logger.LoggerAdapter">
+      <point x="0.0" y="-14.5" />
+      <point x="1632.0" y="148.0" />
+      <point x="1704.625" y="148.0" />
+      <point x="-17.375" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.logger.support.FailsafeLogger" target="com.alibaba.dubbo.common.logger.Logger">
+      <point x="0.0" y="-14.5" />
+      <point x="73.0" y="370.0" />
+      <point x="330.5" y="370.0" />
+      <point x="-36.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.threadlocal.NamedInternalThreadFactory" target="com.alibaba.dubbo.common.utils.NamedThreadFactory">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.status.support.LoadStatusChecker" target="com.alibaba.dubbo.common.status.StatusChecker">
+      <point x="-41.75" y="-14.5" />
+      <point x="415.7499999999999" y="138.0" />
+      <point x="287.75" y="138.0" />
+      <point x="34.75" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.compiler.support.AdaptiveCompiler" target="com.alibaba.dubbo.common.compiler.Compiler">
+      <point x="40.0" y="-14.5" />
+      <point x="1118.0" y="148.0" />
+      <point x="1152.2019230769229" y="148.0" />
+      <point x="-26.0" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="55.5" y="14.5" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
