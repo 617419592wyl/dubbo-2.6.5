@@ -40,7 +40,7 @@ public class ProviderConfig extends AbstractServiceConfig {
 
     // ======== protocol default values, it'll take effect when protocol's attributes are not set 协议默认值，不设置协议属性时生效 ========
 
-    // service IP addresses (used when there are multiple network cards available)
+    // service IP addresses (used when there are multiple network cards available) 指定服务ip，当多网卡时使用
     private String host;
 
     // service port
@@ -58,13 +58,13 @@ public class ProviderConfig extends AbstractServiceConfig {
     // IO thread pool size (fixed size) io线程数，默认cpu线程数+1
     private Integer iothreads;
 
-    // thread pool queue length 队列长度
+    // thread pool queue length 默认值0，dubbo建议任务直接处理不要加入队列
     private Integer queues;
 
-    // max acceptable connections provider最大连接数
+    // max acceptable connections provider 默认值9，服务提供者的最大连接数
     private Integer accepts;
 
-    // protocol codec 编解码器
+    // protocol codec 协议编解码支持，默认值dubbo
     private String codec;
 
     // charset
@@ -76,7 +76,7 @@ public class ProviderConfig extends AbstractServiceConfig {
     // buffer size
     private Integer buffer;
 
-    // transporter
+    // transporter 网络传输方式，可选netty、mina、grizzly、http等，客户端和服务端可以单独设置
     private String transporter;
 
     // how information gets exchanged 信息交换方式 header，默认HeaderExchanger
@@ -122,7 +122,7 @@ public class ProviderConfig extends AbstractServiceConfig {
 //    这四中spi没有继承进来，需要自己扩展
     private String status;
 
-    // wait time when stop 停止等待时间
+    // wait time when stop 服务停止等待时间
     private Integer wait;
 
     // if it's default

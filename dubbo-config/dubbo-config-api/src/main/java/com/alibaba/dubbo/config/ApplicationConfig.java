@@ -36,13 +36,13 @@ public class ApplicationConfig extends AbstractConfig {
 
     private static final long serialVersionUID = 5508512956753757169L;
 
-    // application name
+    // application name 应用名，provider和consumer不能一致，用于注册中心计算应用间依赖关系
     private String name;
 
     // module version
     private String version;
 
-    // application owner
+    // application owner 应用负责人，用于服务治理
     private String owner;
 
     // application's organization (BU)
@@ -51,16 +51,16 @@ public class ApplicationConfig extends AbstractConfig {
     // architecture layer
     private String architecture;
 
-    // environment, e.g. dev, test or production
+    // environment, e.g. dev, test or production 环境，在开发、测试中有用
     private String environment;
 
-    // Java compiler
+    // Java compiler  java字节码编译器，用于动态类生成，可选 jdk、javassist，默认值javassist
     private String compiler;
 
-    // logger
+    // logger 日志输出方式，可选：slf4j,jcl,log4j,log4j2,jdk，默认值slf4j
     private String logger;
 
-    // registry centers
+    // registry centers 这是dubbo注册中心相关的配置
     private List<RegistryConfig> registries;
 
     // monitor center
@@ -69,7 +69,7 @@ public class ApplicationConfig extends AbstractConfig {
     // is default or not
     private Boolean isDefault;
 
-    // directory for saving thread dump 线程堆栈保存文件夹
+    // directory for saving thread dump 保存线程堆栈文件，对应xml标签参数dump.directory
     /**
      * <dubbo:application>
      *     <dubbo:parameter key="dump.directory" value="/home/logs/dump"></dubbo:parameter>

@@ -31,7 +31,7 @@ public class RegistryConfig extends AbstractConfig {
 
     public static final String NO_AVAILABLE = "N/A";
     private static final long serialVersionUID = 5508512956753757169L;
-    // register center address
+    // register center address 注册中心地址，对应xml标签 address属性,zookeeper单机，address也可以这样用 zookeeper://127.0.0.1:2181
     private String address;
 
     // username to login register center
@@ -43,16 +43,16 @@ public class RegistryConfig extends AbstractConfig {
     // default port for register center
     private Integer port;
 
-    // protocol for register center
+    // protocol for register center 支持dubbo、multicast、redis、zookeeper等
     private String protocol;
 
-    // client impl
+    // client impl 网络传输方式，可选netty、mina、grizzly、http等
     private String transporter;
 
     /**
      * <dubbo:protocol name="dubbo" port="20880" server="" client=""/>
-     * server netty、http
-     * client netty http
+     * 对应<dubbo:protocol server属性，默认dubbo协议是netty、http协议是servlet
+     * 对应<dubbo:protocol client属性，默认dubbo协议是netty
      */
     private String server;
 
@@ -86,10 +86,10 @@ public class RegistryConfig extends AbstractConfig {
     // file for saving register center dynamic list  用来存储注册中心服务提供者的文件，服务重启会从这个文件加载注册中心​
     private String file;
 
-    // wait time before stop 停止等待时间
+    // wait time before stop 服务关闭等待时间
     private Integer wait;
 
-    // whether to check if register center is available when boot up 检查注册的服务提供者是否可用
+    // whether to check if register center is available when boot up 检查注册的服务提供者是否可用，对应<dubbo:registry、<dubbo:refrence、<dubbo:consumer 标签check属性，默认值true
     private Boolean check;
 
     // whether to allow dynamic service to register on the register center 服务是否动态注册。如果为false，服务将显示为disable，您需要手动启用它。您还需要在provider关闭时禁用它。
