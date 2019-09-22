@@ -39,10 +39,10 @@ public abstract class AbstractServiceConfig extends AbstractInterfaceConfig {
     // group
     protected String group;
 
-    // whether the service is deprecated
+    // whether the service is deprecated 是否弃用 false
     protected Boolean deprecated;
 
-    // delay service exporting 延迟加载服务的时间ms
+    // delay service exporting 延迟加载服务的时间ms 0
     protected Integer delay;
 
     // whether to export the service 是否加载服务

@@ -20,11 +20,7 @@ import com.alibaba.dubbo.common.Constants;
 import com.alibaba.dubbo.common.URL;
 import com.alibaba.dubbo.common.Version;
 import com.alibaba.dubbo.common.extension.ExtensionLoader;
-import com.alibaba.dubbo.common.utils.ConfigUtils;
-import com.alibaba.dubbo.common.utils.NetUtils;
-import com.alibaba.dubbo.common.utils.ReflectUtils;
-import com.alibaba.dubbo.common.utils.StringUtils;
-import com.alibaba.dubbo.common.utils.UrlUtils;
+import com.alibaba.dubbo.common.utils.*;
 import com.alibaba.dubbo.config.support.Parameter;
 import com.alibaba.dubbo.monitor.MonitorFactory;
 import com.alibaba.dubbo.monitor.MonitorService;
@@ -36,12 +32,12 @@ import com.alibaba.dubbo.rpc.ProxyFactory;
 import com.alibaba.dubbo.rpc.cluster.Cluster;
 import com.alibaba.dubbo.rpc.support.MockInvoker;
 
-import static com.alibaba.dubbo.common.utils.NetUtils.isInvalidLocalHost;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static com.alibaba.dubbo.common.utils.NetUtils.isInvalidLocalHost;
 
 /**
  * AbstractDefaultConfig
@@ -52,7 +48,7 @@ public abstract class AbstractInterfaceConfig extends AbstractMethodConfig {
 
     private static final long serialVersionUID = -1559314110797223229L;
 
-    // local impl class name for the service interface 接口的本地实现类名
+    // local impl class name for the service interface 接口的本地实现类名 false
     protected String local;
 
     // local stub class name for the service interface
@@ -61,7 +57,7 @@ public abstract class AbstractInterfaceConfig extends AbstractMethodConfig {
     // service monitor
     protected MonitorConfig monitor;
 
-    // proxy type 代理类型
+    // proxy type 代理类型 javassist
     protected String proxy;
 
     // cluster type 容错类型
@@ -93,10 +89,10 @@ public abstract class AbstractInterfaceConfig extends AbstractMethodConfig {
     // registry centers
     protected List<RegistryConfig> registries;
 
-    // connection events 连接事件
+    // connection events 连接事件，指定方法名
     protected String onconnect;
 
-    // disconnection events 断开连接事件
+    // disconnection events 断开连接事件，指定方法名
     protected String ondisconnect;
 
     // callback limits 回调次数

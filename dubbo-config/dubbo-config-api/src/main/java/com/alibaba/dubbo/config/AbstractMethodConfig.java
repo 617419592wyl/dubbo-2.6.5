@@ -32,16 +32,22 @@ public abstract class AbstractMethodConfig extends AbstractConfig {
 
     private static final long serialVersionUID = 1L;
 
-    // timeout for remote invocation in milliseconds 执行超时时间爱你
+    // timeout for remote invocation in milliseconds 执行超时时间 1000ms
     protected Integer timeout;
 
-    // retry times 重试次数
+    // retry times 重试次数 2
     protected Integer retries;
 
     // max concurrent invocations consumer最大并发数
     protected Integer actives;
 
     // load balance 负载均衡策略
+    /**
+     * random 随机
+     * roundrobin 轮询
+     * leastactive 最少活跃数
+     * consistenthash 哈希一致性
+     */
     protected String loadbalance;
 
     // whether to async 是否异步
@@ -50,7 +56,7 @@ public abstract class AbstractMethodConfig extends AbstractConfig {
     // whether to ack async-sent 异步是否需要ack
     protected Boolean sent;
 
-    // the name of mock class which gets called when a service fails to execute 服务调用失败后调用mock类
+    // the name of mock class which gets called when a service fails to execute true表示使用默认的mock类名，即带有mock后缀的接口名。当RPC失败时调用它，例如超时或IO异常。mock类必须携带一个无参数构造函数。mock和本地代理的区别在于，总是在RPC之前调用本地代理，而只有在RPC之后出现异常时才调用mock。
     protected String mock;
 
     // merger 结果集合并方法
