@@ -228,7 +228,7 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
         if (unexported) {
             throw new IllegalStateException("Already unexported!");
         }
-//        注册过服务结束
+//        注册过服务结束，这里是用volatile变量的线程扩展性告诉其他线程有线程在进行服务export
         if (exported) {
             return;
         }
@@ -237,7 +237,7 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
         if (interfaceName == null || interfaceName.length() == 0) {
             throw new IllegalStateException("<dubbo:service interface=\"\" /> interface not allow null!");
         }
-//        从系统变量读取默认配置=》
+//        从系统变量读取默认配置，属性值的key值是dubbo.provider+<dubbo:application name+providerConfig的属性名=》
         checkDefault();
         if (provider != null) {
             if (application == null) {
