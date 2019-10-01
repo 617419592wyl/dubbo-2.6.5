@@ -52,10 +52,12 @@ public class ProtocolListenerWrapper implements Protocol {
 
     @Override
     public <T> Exporter<T> export(Invoker<T> invoker) throws RpcException {
+//        invoker.getUrl().getProtocol()取值是scope的值，scope默认值值是registry，如果设置injvm会走本地服务export
         if (Constants.REGISTRY_PROTOCOL.equals(invoker.getUrl().getProtocol())) {
 //          RegistryProtocol.export()
             return protocol.export(invoker);
         }
+//        这里可以实现自己的ExporterListener实现，在服务export、unexport的时候的监听器实现 com.alibaba.dubbo.rpc.protocol.injvm.InjvmProtocol.export()=》
         return new ListenerExporterWrapper<T>(protocol.export(invoker),
                 Collections.unmodifiableList(ExtensionLoader.getExtensionLoader(ExporterListener.class)
                         .getActivateExtension(invoker.getUrl(), Constants.EXPORTER_LISTENER_KEY)));

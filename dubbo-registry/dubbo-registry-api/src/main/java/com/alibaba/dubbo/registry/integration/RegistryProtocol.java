@@ -30,14 +30,9 @@ import com.alibaba.dubbo.registry.Registry;
 import com.alibaba.dubbo.registry.RegistryFactory;
 import com.alibaba.dubbo.registry.RegistryService;
 import com.alibaba.dubbo.registry.support.ProviderConsumerRegTable;
-import com.alibaba.dubbo.rpc.Exporter;
-import com.alibaba.dubbo.rpc.Invoker;
-import com.alibaba.dubbo.rpc.Protocol;
-import com.alibaba.dubbo.rpc.ProxyFactory;
-import com.alibaba.dubbo.rpc.RpcException;
+import com.alibaba.dubbo.rpc.*;
 import com.alibaba.dubbo.rpc.cluster.Cluster;
 import com.alibaba.dubbo.rpc.cluster.Configurator;
-import com.alibaba.dubbo.rpc.listener.ListenerExporterWrapper;
 import com.alibaba.dubbo.rpc.protocol.InvokerWrapper;
 
 import java.util.ArrayList;
@@ -48,10 +43,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import static com.alibaba.dubbo.common.Constants.ACCEPT_FOREIGN_IP;
-import static com.alibaba.dubbo.common.Constants.QOS_ENABLE;
-import static com.alibaba.dubbo.common.Constants.QOS_PORT;
-import static com.alibaba.dubbo.common.Constants.VALIDATION_KEY;
+import static com.alibaba.dubbo.common.Constants.*;
 
 /**
  * RegistryProtocol
@@ -168,6 +160,10 @@ public class RegistryProtocol implements Protocol {
 
     @SuppressWarnings("unchecked")
     private <T> ExporterChangeableWrapper<T> doLocalExport(final Invoker<T> originInvoker) {
+//        interface com.alibaba.dubbo.demo.DemoService -> registry://192.168.50.251:2181/com.alibaba.dubbo.registry.RegistryService?application=demo-provider&dubbo=2.0.2&
+// export=dubbo://172.28.83.80:20880/com.alibaba.dubbo.demo.DemoService?anyhost=true&application=demo-provider&bean.name=com.alibaba.dubbo.demo.DemoService&bind.ip=172.28.83.80&
+// bind.port=20880&dubbo=2.0.2&generic=false&interface=com.alibaba.dubbo.demo.DemoService&methods=sayHello&pid=74694&qos.port=22222&side=provider&timestamp=1569832059888&pid=74694
+// &qos.port=22222&registry=zookeeper&timestamp=1569832059853
         String key = getCacheKey(originInvoker);
         ExporterChangeableWrapper<T> exporter = (ExporterChangeableWrapper<T>) bounds.get(key);
         if (exporter == null) {

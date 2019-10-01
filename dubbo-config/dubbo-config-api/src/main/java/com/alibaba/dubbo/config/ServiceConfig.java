@@ -552,7 +552,7 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
                             logger.info("Register dubbo service " + interfaceClass.getName() + " url " + url + " to registry " + registryURL);
                         }
 
-                        // For providers, this is used to enable custom proxy to generate invoker 对于提供程序，这用于启用自定义代理来生成调用程序，解析procy属性值
+                        // For providers, this is used to enable custom proxy to generate invoker 对于提供程序，这用于启用自定义代理来生成调用程序，解析proxy属性值
                         String proxy = url.getParameter(Constants.PROXY_KEY);
                         if (StringUtils.isNotEmpty(proxy)) {
 //                            添加proxy属性值到url
@@ -588,7 +588,7 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
                     .setHost(LOCALHOST)
                     .setPort(0);
             ServiceClassHolder.getInstance().pushServiceClass(getServiceClass(ref));
-//            服务注册=》
+//            服务注册 com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper.export=》
             Exporter<?> exporter = protocol.export(
                     proxyFactory.getInvoker(ref, (Class) interfaceClass, local));
             exporters.add(exporter);
