@@ -65,12 +65,14 @@ public abstract class FailbackRegistry extends AbstractRegistry {
 
     public FailbackRegistry(URL url) {
         super(url);
+//        每5秒中会重试注册失败的服务信息，可以修改这个参数retry.period
         this.retryPeriod = url.getParameter(Constants.REGISTRY_RETRY_PERIOD_KEY, Constants.DEFAULT_REGISTRY_RETRY_PERIOD);
         this.retryFuture = retryExecutor.scheduleWithFixedDelay(new Runnable() {
             @Override
             public void run() {
                 // Check and connect to the registry
                 try {
+//                    服务注册失败重试
                     retry();
                 } catch (Throwable t) { // Defensive fault tolerance
                     logger.error("Unexpected error occur at failed retry, cause: " + t.getMessage(), t);
@@ -190,8 +192,9 @@ public abstract class FailbackRegistry extends AbstractRegistry {
 
     @Override
     public void subscribe(URL url, NotifyListener listener) {
-//        设置服务订阅信息=》
+//        注册服务订阅的url
         super.subscribe(url, listener);
+//        删除订阅失败的url
         removeFailedSubscribed(url, listener);
         try {
             // Sending a subscription request to the server side 向服务器端发送订阅请求=》ZookeeperRegistry
@@ -324,9 +327,10 @@ public abstract class FailbackRegistry extends AbstractRegistry {
                 try {
                     for (URL url : failed) {
                         try {
+//                            zk服务注册
                             doRegister(url);
                             failedRegistered.remove(url);
-                        } catch (Throwable t) { // Ignore all the exceptions and wait for the next retry
+                        } catch (Throwable t) { // Ignore all the exceptions and wait for the next retry 这里异常不做处理等待下次重试
                             logger.warn("Failed to retry register " + failed + ", waiting for again, cause: " + t.getMessage(), t);
                         }
                     }
@@ -344,6 +348,7 @@ public abstract class FailbackRegistry extends AbstractRegistry {
                 try {
                     for (URL url : failed) {
                         try {
+//                            取消服务注册失败重试
                             doUnregister(url);
                             failedUnregistered.remove(url);
                         } catch (Throwable t) { // Ignore all the exceptions and wait for the next retry
@@ -372,6 +377,7 @@ public abstract class FailbackRegistry extends AbstractRegistry {
                         Set<NotifyListener> listeners = entry.getValue();
                         for (NotifyListener listener : listeners) {
                             try {
+//                                服务订阅失败的进行重新订阅
                                 doSubscribe(url, listener);
                                 listeners.remove(listener);
                             } catch (Throwable t) { // Ignore all the exceptions and wait for the next retry
@@ -401,6 +407,7 @@ public abstract class FailbackRegistry extends AbstractRegistry {
                         Set<NotifyListener> listeners = entry.getValue();
                         for (NotifyListener listener : listeners) {
                             try {
+//                                取消订阅
                                 doUnsubscribe(url, listener);
                                 listeners.remove(listener);
                             } catch (Throwable t) { // Ignore all the exceptions and wait for the next retry

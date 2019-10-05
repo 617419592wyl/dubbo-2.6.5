@@ -118,6 +118,7 @@ public class ZookeeperRegistry extends FailbackRegistry {
     protected void doRegister(URL url) {
         try {
 //            服务注册，创建zk节点，如果dynamic配置的是true，创建的就是zk临时节点=》
+//            /dubbo/com.alibaba.dubbo.demo.DemoService/providers/dubbo://172.28.84.147:20880/com.alibaba.dubbo.demo.DemoService?anyhost=true&application=demo-provider&bean.name=com.alibaba.dubbo.demo.DemoService&dubbo=2.0.2&generic=false&interface=com.alibaba.dubbo.demo.DemoService&methods=sayHello&pid=76579&side=provider&timestamp=1569898563184
             zkClient.create(toUrlPath(url), url.getParameter(Constants.DYNAMIC_KEY, true));
         } catch (Throwable e) {
             throw new RpcException("Failed to register " + url + " to zookeeper " + getUrl() + ", cause: " + e.getMessage(), e);
@@ -153,6 +154,7 @@ public class ZookeeperRegistry extends FailbackRegistry {
                                 child = URL.decode(child);
                                 if (!anyServices.contains(child)) {
                                     anyServices.add(child);
+//                                    订阅服务
                                     subscribe(url.setPath(child).addParameters(Constants.INTERFACE_KEY, child,
                                             Constants.CHECK_KEY, String.valueOf(false)), listener);
                                 }
@@ -163,7 +165,7 @@ public class ZookeeperRegistry extends FailbackRegistry {
                 }
 //                创建zk持久节点
                 zkClient.create(root, false);
-//                添加zk监听器=》
+//                添加zk监听器，订阅服务注册根节点=》
                 List<String> services = zkClient.addChildListener(root, zkListener);
                 if (services != null && !services.isEmpty()) {
                     for (String service : services) {

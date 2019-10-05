@@ -31,7 +31,7 @@ import java.util.List;
  * @see com.alibaba.dubbo.rpc.cluster.Cluster#join(Directory)
  * @see com.alibaba.dubbo.rpc.cluster.Directory#list(Invocation)
  */
-//
+//使用场景主要是恢复发布、独立分离、负载均衡等​，ConditionRouter 条件路由，ScriptRouter 脚本路由
 public interface Router extends Comparable<Router> {
 
     /**
