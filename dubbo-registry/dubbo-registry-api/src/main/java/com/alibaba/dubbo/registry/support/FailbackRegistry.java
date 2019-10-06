@@ -201,7 +201,7 @@ public abstract class FailbackRegistry extends AbstractRegistry {
             doSubscribe(url, listener);
         } catch (Exception e) {
             Throwable t = e;
-
+//          查询本地缓存的url
             List<URL> urls = getCacheUrls(url);
             if (urls != null && !urls.isEmpty()) {
 //                监听器操作=》
