@@ -290,13 +290,13 @@ public class RegistryProtocol implements Protocol {
         // group="a,b" or group="*"
         Map<String, String> qs = StringUtils.parseQueryString(url.getParameterAndDecoded(Constants.REFER_KEY));
         String group = qs.get(Constants.GROUP_KEY);
-        if (group != null && group.length() > 0) {
-            if ((Constants.COMMA_SPLIT_PATTERN.split(group)).length > 1
-                    || "*".equals(group)) {
-//                查询dubbo服务执行器=》
-                return doRefer(getMergeableCluster(), registry, type, url);
+            if (group != null && group.length() > 0) {
+                if ((Constants.COMMA_SPLIT_PATTERN.split(group)).length > 1
+                        || "*".equals(group)) {
+    //                查询dubbo服务执行器=》
+                    return doRefer(getMergeableCluster(), registry, type, url);
+                }
             }
-        }
 //        =》ZookeeperRegistry
         return doRefer(cluster, registry, type, url);
     }
