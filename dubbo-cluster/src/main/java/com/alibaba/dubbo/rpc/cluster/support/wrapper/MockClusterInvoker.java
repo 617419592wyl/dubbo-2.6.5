@@ -72,7 +72,8 @@ public class MockClusterInvoker<T> implements Invoker<T> {
 //        mock 属性值，是否开启了mock
         String value = directory.getUrl().getMethodParameter(invocation.getMethodName(), Constants.MOCK_KEY, Boolean.FALSE.toString()).trim();
         if (value.length() == 0 || value.equalsIgnoreCase("false")) {
-            //no mock 没有mock直接执行业务方法=》FailoverClusterInvoker
+            //no mock 没有mock直接执行业务方法=》com.alibaba.dubbo.rpc.cluster.support.AbstractClusterInvoker.invoke
+//            这里的invoker就是从远程refer的服务proxy
             result = this.invoker.invoke(invocation);
         } else if (value.startsWith("force")) {
             if (logger.isWarnEnabled()) {

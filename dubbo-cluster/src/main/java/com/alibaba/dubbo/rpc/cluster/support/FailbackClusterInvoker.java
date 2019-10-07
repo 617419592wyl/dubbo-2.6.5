@@ -75,6 +75,7 @@ public class FailbackClusterInvoker<T> extends AbstractClusterInvoker<T> {
                         public void run() {
                             // collect retry statistics
                             try {
+//                                5秒钟执行一次重试策略
                                 retryFailed();
                             } catch (Throwable t) { // Defensive fault tolerance
                                 logger.error("Unexpected error occur at collect statistic", t);
@@ -114,6 +115,7 @@ public class FailbackClusterInvoker<T> extends AbstractClusterInvoker<T> {
         } catch (Throwable e) {
             logger.error("Failback to invoke method " + invocation.getMethodName() + ", wait for retry in background. Ignored exception: "
                     + e.getMessage() + ", ", e);
+//            执行失败处理
             addFailed(invocation, this);
             return new RpcResult(); // ignore
         }

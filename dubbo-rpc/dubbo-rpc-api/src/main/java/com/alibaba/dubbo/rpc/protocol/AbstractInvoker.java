@@ -156,7 +156,7 @@ public abstract class AbstractInvoker<T> implements Invoker<T> {
 
 
         try {
-//            =》
+//            =》com.alibaba.dubbo.rpc.protocol.dubbo.DubboInvoker.doInvoke()
             return doInvoke(invocation);
         } catch (InvocationTargetException e) { // biz exception
             Throwable te = e.getTargetException();

@@ -251,6 +251,7 @@ public abstract class AbstractClusterInvoker<T> implements Invoker<T> {
                     .getMethodParameter(RpcUtils.getMethodName(invocation), Constants.LOADBALANCE_KEY, Constants.DEFAULT_LOADBALANCE));
         }
         RpcUtils.attachInvocationIdIfAsync(getUrl(), invocation);
+//        com.alibaba.dubbo.rpc.cluster.support.FailoverClusterInvoker.doInvoke()
         return doInvoke(invocation, invokers, loadbalance);
     }
 

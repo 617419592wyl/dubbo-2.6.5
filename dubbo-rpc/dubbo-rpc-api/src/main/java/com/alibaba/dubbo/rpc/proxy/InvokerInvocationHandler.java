@@ -51,7 +51,7 @@ public class InvokerInvocationHandler implements InvocationHandler {
         if ("equals".equals(methodName) && parameterTypes.length == 1) {
             return invoker.equals(args[0]);
         }
-        //            dubbo源码解析之方法执行，调用远程代理对象=》MockClusterInvoker
+        //            dubbo源码解析之方法执行，调用远程代理对象=》com.alibaba.dubbo.rpc.cluster.support.wrapper.MockClusterInvoker.invoke
         return invoker.invoke(new RpcInvocation(method, args)).recreate();
     }
 
