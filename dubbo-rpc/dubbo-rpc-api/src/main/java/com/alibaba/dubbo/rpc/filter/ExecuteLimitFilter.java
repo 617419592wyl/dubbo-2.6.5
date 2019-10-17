@@ -42,7 +42,7 @@ public class ExecuteLimitFilter implements Filter {
         String methodName = invocation.getMethodName();
         Semaphore executesLimit = null;
         boolean acquireResult = false;
-//        executes参数是用Semaphore限制并发的
+//        executes参数是用Semaphore限制并发的，默认是0标识无限制
         int max = url.getMethodParameter(methodName, Constants.EXECUTES_KEY, 0);
         if (max > 0) {
             RpcStatus count = RpcStatus.getStatus(url, invocation.getMethodName());

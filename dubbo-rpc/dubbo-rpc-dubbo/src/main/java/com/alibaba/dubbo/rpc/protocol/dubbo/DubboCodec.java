@@ -88,6 +88,7 @@ public class DubboCodec extends ExchangeCodec implements Codec2 {
                                 Constants.DEFAULT_DECODE_IN_IO_THREAD)) {
                             result = new DecodeableRpcResult(channel, res, is,
                                     (Invocation) getRequestData(id), proto);
+//                            响应结果解析
                             result.decode();
                         } else {
                             result = new DecodeableRpcResult(channel, res,
@@ -129,6 +130,7 @@ public class DubboCodec extends ExchangeCodec implements Codec2 {
                             Constants.DECODE_IN_IO_THREAD_KEY,
                             Constants.DEFAULT_DECODE_IN_IO_THREAD)) {
                         inv = new DecodeableRpcInvocation(channel, req, is, proto);
+//                        com.alibaba.dubbo.remoting.exchange.codec.ExchangeCodec.decode(com.alibaba.dubbo.remoting.Channel, com.alibaba.dubbo.remoting.buffer.ChannelBuffer, int, byte[])
                         inv.decode();
                     } else {
                         inv = new DecodeableRpcInvocation(channel, req,
@@ -148,7 +150,8 @@ public class DubboCodec extends ExchangeCodec implements Codec2 {
             return req;
         }
     }
-
+//    com.alibaba.dubbo.remoting.exchange.codec.ExchangeCodec.decode(com.alibaba.dubbo.remoting.Channel, com.alibaba.dubbo.remoting.buffer.ChannelBuffer, int, byte[])
+//com.alibaba.dubbo.remoting.exchange.codec.ExchangeCodec.decode(com.alibaba.dubbo.remoting.Channel, com.alibaba.dubbo.remoting.buffer.ChannelBuffer)
     private byte[] readMessageData(InputStream is) throws IOException {
         if (is.available() > 0) {
             byte[] result = new byte[is.available()];

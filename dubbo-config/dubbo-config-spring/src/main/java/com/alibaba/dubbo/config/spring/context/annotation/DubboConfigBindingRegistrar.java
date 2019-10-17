@@ -135,6 +135,7 @@ public class DubboConfigBindingRegistrar implements ImportBeanDefinitionRegistra
     private void registerDubboConfigBindingBeanPostProcessor(String prefix, String beanName, boolean multiple,
                                                              BeanDefinitionRegistry registry) {
 
+//        对dubbo配置bean实例化过程进行干预
         Class<?> processorClass = DubboConfigBindingBeanPostProcessor.class;
 
         BeanDefinitionBuilder builder = rootBeanDefinition(processorClass);

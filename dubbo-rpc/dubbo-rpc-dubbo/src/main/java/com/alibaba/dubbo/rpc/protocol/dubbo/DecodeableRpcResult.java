@@ -82,7 +82,7 @@ public class DecodeableRpcResult extends RpcResult implements Codec, Decodeable 
                 break;
             case DubboCodec.RESPONSE_VALUE:
                 try {
-//                    获取执行方法的返回值类型
+//                    获取执行方法的返回值类型并设置返回值
                     Type[] returnType = RpcUtils.getReturnTypes(invocation);
                     setValue(returnType == null || returnType.length == 0 ? in.readObject() :
                             (returnType.length == 1 ? in.readObject((Class<?>) returnType[0])
@@ -103,6 +103,7 @@ public class DecodeableRpcResult extends RpcResult implements Codec, Decodeable 
                 break;
             case DubboCodec.RESPONSE_NULL_VALUE_WITH_ATTACHMENTS:
                 try {
+//                    =》com.alibaba.dubbo.rpc.protocol.dubbo.DubboCodec.decodeBody()
                     setAttachments((Map<String, String>) in.readObject(Map.class));
                 } catch (ClassNotFoundException e) {
                     throw new IOException(StringUtils.toString("Read response data failed.", e));

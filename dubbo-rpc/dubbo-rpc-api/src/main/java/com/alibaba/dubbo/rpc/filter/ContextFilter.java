@@ -71,11 +71,13 @@ public class ContextFilter implements Filter {
             ((RpcInvocation) invocation).setInvoker(invoker);
         }
         try {
+//            invoker执行
             RpcResult result = (RpcResult) invoker.invoke(invocation);
             // pass attachments to result
             result.addAttachments(RpcContext.getServerContext().getAttachments());
             return result;
         } finally {
+//            清除上下文
             RpcContext.removeContext();
             RpcContext.getServerContext().clearAttachments();
         }

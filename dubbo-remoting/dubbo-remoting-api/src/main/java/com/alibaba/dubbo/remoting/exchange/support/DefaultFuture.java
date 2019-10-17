@@ -119,7 +119,7 @@ public class DefaultFuture implements ResponseFuture {
 //            这里可以看到客户端是异步的，这里获取响应信息的时候是按id获取对应的future，因此可以支持高并发
             DefaultFuture future = FUTURES.remove(response.getId());
             if (future != null) {
-//                同步处理响应信息=》
+//                同步处理响应信息=》doReceived()
                 future.doReceived(response);
             } else {
                 logger.warn("The timeout response finally returned at "

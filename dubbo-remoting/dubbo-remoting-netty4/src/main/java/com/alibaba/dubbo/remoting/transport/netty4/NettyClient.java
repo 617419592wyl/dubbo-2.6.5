@@ -91,6 +91,7 @@ public class NettyClient extends AbstractClient {
         long start = System.currentTimeMillis();
         ChannelFuture future = bootstrap.connect(getConnectAddress());
         try {
+//            同步等待连接
             boolean ret = future.awaitUninterruptibly(getConnectTimeout(), TimeUnit.MILLISECONDS);
 
             if (ret && future.isSuccess()) {

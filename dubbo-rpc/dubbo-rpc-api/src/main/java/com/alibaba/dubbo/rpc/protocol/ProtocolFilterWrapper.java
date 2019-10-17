@@ -68,6 +68,11 @@ public class ProtocolFilterWrapper implements Protocol {
                     public Result invoke(Invocation invocation) throws RpcException {
 //                        ConsumerContextFilter.invoke()    com.alibaba.dubbo.rpc.protocol.dubbo.filter.FutureFilter.invoke()   com.alibaba.dubbo.monitor.support.MonitorFilter.invoke()
                         return filter.invoke(next, invocation);
+//                        com.alibaba.dubbo.rpc.filter.EchoFilter.invoke()
+//                        com.alibaba.dubbo.rpc.filter.ClassLoaderFilter.invoke()
+//                        GenericFilter.invoke()
+//                        ContextFilter.invoke()
+//                        com.alibaba.dubbo.rpc.protocol.dubbo.filter.TraceFilter.invoke()
                     }
 
                     @Override

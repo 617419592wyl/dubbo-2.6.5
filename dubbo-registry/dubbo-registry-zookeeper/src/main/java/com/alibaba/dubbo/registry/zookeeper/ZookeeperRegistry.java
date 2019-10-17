@@ -181,6 +181,7 @@ public class ZookeeperRegistry extends FailbackRegistry {
                     ConcurrentMap<NotifyListener, ChildListener> listeners = zkListeners.get(url);
                     if (listeners == null) {
                         zkListeners.putIfAbsent(url, new ConcurrentHashMap<NotifyListener, ChildListener>());
+//                        provider://192.168.43.108:20880/com.alibaba.dubbo.demo.DemoService?anyhost=true&application=demo-provider&bean.name=com.alibaba.dubbo.demo.DemoService&category=configurators&check=false&default.server=netty4&dubbo=2.0.2&generic=false&interface=com.alibaba.dubbo.demo.DemoService&methods=sayHello&pid=84572&side=provider&timestamp=1570893741359
                         listeners = zkListeners.get(url);
                     }
                     ChildListener zkListener = listeners.get(listener);

@@ -132,6 +132,7 @@ public class RegistryProtocol implements Protocol {
         //registry provider 注册服务提供者=》ZookeeperRegistry
         final Registry registry = getRegistry(originInvoker);
 //        查询注册的provider url=》
+//        dubbo://192.168.43.108:20880/com.alibaba.dubbo.demo.DemoService?anyhost=true&application=demo-provider&bean.name=com.alibaba.dubbo.demo.DemoService&default.server=netty4&dubbo=2.0.2&generic=false&interface=com.alibaba.dubbo.demo.DemoService&methods=sayHello&pid=84248&side=provider&timestamp=1570891724286
         final URL registeredProviderUrl = getRegisteredProviderUrl(originInvoker);
 
         //to judge to delay publish whether or not 判断是否推迟发布，获取register参数是否进行服务注册，开发测试中可以设置为不注册，用服务直连
@@ -149,6 +150,7 @@ public class RegistryProtocol implements Protocol {
         // Subscribe the override data
         // FIXME When the provider subscribes, it will affect the scene : a certain JVM exposes the service and call the same service. Because the subscribed is cached key with the name of the service, it causes the subscription information to cover.
 //        当提供者订阅时，它将影响场景:某个JVM公开服务并调用相同的服务。因为订阅是带有服务名称的缓存键，所以它会导致订阅信息覆盖。
+//        provider://192.168.43.108:20880/com.alibaba.dubbo.demo.DemoService?anyhost=true&application=demo-provider&bean.name=com.alibaba.dubbo.demo.DemoService&category=configurators&check=false&default.server=netty4&dubbo=2.0.2&generic=false&interface=com.alibaba.dubbo.demo.DemoService&methods=sayHello&pid=84248&side=provider&timestamp=1570891724286
         final URL overrideSubscribeUrl = getSubscribedOverrideUrl(registeredProviderUrl);
         final OverrideListener overrideSubscribeListener = new OverrideListener(overrideSubscribeUrl, originInvoker);
         overrideListeners.put(overrideSubscribeUrl, overrideSubscribeListener);
@@ -312,6 +314,7 @@ public class RegistryProtocol implements Protocol {
         // all attributes of REFER_KEY
         Map<String, String> parameters = new HashMap<String, String>(directory.getUrl().getParameters());
 //        订阅的url consumer
+//        consumer://192.168.43.108/com.alibaba.dubbo.demo.DemoService?application=demo-consumer&check=false&default.client=netty4&dubbo=2.0.2&interface=com.alibaba.dubbo.demo.DemoService&methods=sayHello&pid=84351&qos.port=33333&side=consumer&timeout=3000000&timestamp=1570892444487
         URL subscribeUrl = new URL(Constants.CONSUMER_PROTOCOL, parameters.remove(Constants.REGISTER_IP_KEY), 0, type.getName(), parameters);
 //        不是订阅所有接口
         if (!Constants.ANY_VALUE.equals(url.getServiceInterface())

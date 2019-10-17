@@ -124,10 +124,12 @@ public abstract class AbstractClient extends AbstractEndpoint implements Client 
 //
     private static int getReconnectParam(URL url) {
         int reconnect;
+//        reconnect参数
         String param = url.getParameter(Constants.RECONNECT_KEY);
         if (param == null || param.length() == 0 || "true".equalsIgnoreCase(param)) {
 //            默认重连周期是2000毫秒
             reconnect = Constants.DEFAULT_RECONNECT_PERIOD;
+//            默认值false
         } else if ("false".equalsIgnoreCase(param)) {
             reconnect = 0;
         } else {
@@ -148,7 +150,7 @@ public abstract class AbstractClient extends AbstractEndpoint implements Client 
      */
 //
     private synchronized void initConnectStatusCheckCommand() {
-        //reconnect=false to close reconnect
+        //reconnect=false to close reconnect 解析重新连接参数
         int reconnect = getReconnectParam(getUrl());
         if (reconnect > 0 && (reconnectExecutorFuture == null || reconnectExecutorFuture.isCancelled())) {
             Runnable connectStatusCheckCommand = new Runnable() {
@@ -273,10 +275,13 @@ public abstract class AbstractClient extends AbstractEndpoint implements Client 
     protected void connect() throws RemotingException {
         connectLock.lock();
         try {
+//            判断连接是否已经连接
             if (isConnected()) {
                 return;
             }
+//            定时连接状态检查
             initConnectStatusCheckCommand();
+//            建立连接
             doConnect();
             if (!isConnected()) {
                 throw new RemotingException(this, "Failed connect to server " + getRemoteAddress() + " from " + getClass().getSimpleName() + " "

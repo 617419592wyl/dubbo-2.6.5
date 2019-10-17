@@ -73,7 +73,7 @@ public class MonitorFilter implements Filter {
                 getConcurrent(invoker, invocation).decrementAndGet(); // count down
             }
         } else {
-//            com.alibaba.dubbo.rpc.listener.ListenerInvokerWrapper.invoke()
+//            com.alibaba.dubbo.rpc.protocol.AbstractInvoker.invoke
             return invoker.invoke(invocation);
         }
     }

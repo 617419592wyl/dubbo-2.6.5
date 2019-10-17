@@ -42,7 +42,7 @@ public class MultiMessageHandler extends AbstractChannelHandlerDelegate {
                 handler.received(channel, obj);
             }
         } else {
-//            com.alibaba.dubbo.remoting.exchange.support.header.HeartbeatHandler.received()
+//            com.alibaba.dubbo.remoting.transport.dispatcher.all.AllChannelHandler.received
             handler.received(channel, message);
         }
     }

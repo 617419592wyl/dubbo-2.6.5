@@ -44,6 +44,7 @@ public final class DubboCountCodec implements Codec2 {
         int save = buffer.readerIndex();
         MultiMessage result = MultiMessage.create();
         do {
+//            com.alibaba.dubbo.remoting.transport.netty4.NettyCodecAdapter.InternalDecoder.decode()
             Object obj = codec.decode(channel, buffer);
             if (Codec2.DecodeResult.NEED_MORE_INPUT == obj) {
                 buffer.readerIndex(save);

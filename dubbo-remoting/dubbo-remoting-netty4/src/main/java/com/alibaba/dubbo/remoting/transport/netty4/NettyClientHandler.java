@@ -71,6 +71,7 @@ public class NettyClientHandler extends ChannelDuplexHandler {
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         NettyChannel channel = NettyChannel.getOrAddChannel(ctx.channel(), url, handler);
         try {
+//            =》com.alibaba.dubbo.remoting.transport.AbstractPeer.received()
             handler.received(channel, msg);
         } finally {
             NettyChannel.removeChannelIfDisconnected(ctx.channel());

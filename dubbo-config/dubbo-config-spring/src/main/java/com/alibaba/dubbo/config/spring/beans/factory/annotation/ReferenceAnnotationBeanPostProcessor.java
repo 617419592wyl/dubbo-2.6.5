@@ -122,6 +122,7 @@ public class ReferenceAnnotationBeanPostProcessor extends AnnotationInjectedBean
     }
 
     private Object buildProxy(String referencedBeanName, ReferenceBean referenceBean, Class<?> injectedType) {
+//        构建执行handler
         InvocationHandler handler = buildInvocationHandler(referencedBeanName, referenceBean);
         Object proxy = Proxy.newProxyInstance(getClassLoader(), new Class[]{injectedType}, handler);
         return proxy;
@@ -139,7 +140,7 @@ public class ReferenceAnnotationBeanPostProcessor extends AnnotationInjectedBean
             // ReferenceBeanInvocationHandler's initialization has to wait for current local @Service Bean has been exported.
             localReferenceBeanInvocationHandlerCache.put(referencedBeanName, handler);
         } else {
-            // Remote Reference Bean should initialize immediately
+            // Remote Reference Bean should initialize immediately 初始化@Reference的bean
             handler.init();
         }
 

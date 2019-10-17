@@ -38,7 +38,7 @@ public class ActiveLimitFilter implements Filter {
         URL url = invoker.getUrl();
 //        查询执行的方法名
         String methodName = invocation.getMethodName();
-//        actives属性值执行限制
+//        actives属性值执行限制，默认值是0代表无限制
         int max = invoker.getUrl().getMethodParameter(methodName, Constants.ACTIVES_KEY, 0);
         RpcStatus count = RpcStatus.getStatus(invoker.getUrl(), invocation.getMethodName());
         if (max > 0) {

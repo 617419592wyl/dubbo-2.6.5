@@ -85,6 +85,7 @@ public class ExchangeCodec extends TelnetCodec {
         byte[] header = new byte[Math.min(readable, HEADER_LENGTH)];
         buffer.readBytes(header);
         return decode(channel, buffer, readable, header);
+//        com.alibaba.dubbo.rpc.protocol.dubbo.DubboCountCodec.decode()
     }
 
     @Override
@@ -124,6 +125,7 @@ public class ExchangeCodec extends TelnetCodec {
         ChannelBufferInputStream is = new ChannelBufferInputStream(buffer, len);
 
         try {
+//            响应结果解析
             return decodeBody(channel, is, header);
         } finally {
             if (is.available() > 0) {

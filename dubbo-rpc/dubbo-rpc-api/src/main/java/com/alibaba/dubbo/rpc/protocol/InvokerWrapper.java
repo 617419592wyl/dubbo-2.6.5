@@ -54,6 +54,7 @@ public class InvokerWrapper<T> implements Invoker<T> {
 
     @Override
     public Result invoke(Invocation invocation) throws RpcException {
+//        =》com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper.buildInvokerChain com.alibaba.dubbo.rpc.Invoker.invoke()
         return invoker.invoke(invocation);
     }
 

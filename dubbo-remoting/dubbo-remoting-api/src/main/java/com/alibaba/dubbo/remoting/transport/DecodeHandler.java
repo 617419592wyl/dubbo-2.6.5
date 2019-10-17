@@ -46,19 +46,20 @@ public class DecodeHandler extends AbstractChannelHandlerDelegate {
         }
 
         if (message instanceof Response) {
-//            响应信息解码=》
+//            响应信息解码=》decode()
             decode(((Response) message).getResult());
         }
 
-//        =》
+//        =》com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler#received
         handler.received(channel, message);
     }
 
     private void decode(Object message) {
         if (message != null && message instanceof Decodeable) {
             try {
-//                =》com.alibaba.dubbo.rpc.protocol.dubbo.DecodeableRpcResult.decode()
+//                =》com.alibaba.dubbo.rpc.protocol.dubbo.DecodeableRpcInvocation#decode()
                 ((Decodeable) message).decode();
+//                =》com.alibaba.dubbo.rpc.protocol.dubbo.DecodeableRpcResult.decode()
                 if (log.isDebugEnabled()) {
                     log.debug("Decode decodeable message " + message.getClass().getName());
                 }

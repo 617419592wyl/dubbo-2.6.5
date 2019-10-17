@@ -51,6 +51,7 @@ public class FutureFilter implements Filter {
         fireInvokeCallback(invoker, invocation);
         // need to configure if there's return value before the invocation in order to help invoker to judge if it's
         // necessary to return future. 需要在调用之前配置是否有返回值，以便帮助调用程序判断是否需要返回future。
+//        com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper.com.alibaba.dubbo.rpc.Invoker.invoke()
         Result result = invoker.invoke(invocation);
         if (isAsync) {
             asyncCallback(invoker, invocation);
@@ -105,6 +106,7 @@ public class FutureFilter implements Filter {
     }
 //
     private void fireInvokeCallback(final Invoker<?> invoker, final Invocation invocation) {
+//        解析回调的对象和方法
         final Method onInvokeMethod = (Method) StaticContext.getSystemContext().get(StaticContext.getKey(invoker.getUrl(), invocation.getMethodName(), Constants.ON_INVOKE_METHOD_KEY));
         final Object onInvokeInst = StaticContext.getSystemContext().get(StaticContext.getKey(invoker.getUrl(), invocation.getMethodName(), Constants.ON_INVOKE_INSTANCE_KEY));
 
@@ -120,6 +122,7 @@ public class FutureFilter implements Filter {
 
         Object[] params = invocation.getArguments();
         try {
+//            执行回调方法
             onInvokeMethod.invoke(onInvokeInst, params);
         } catch (InvocationTargetException e) {
             fireThrowCallback(invoker, invocation, e.getTargetException());

@@ -267,6 +267,7 @@ class CallbackServiceCodec {
         // need get URL from channel and env when decode 解码时需要从通道和环境获取URL
         URL url = null;
         try {
+//            从invoker中查询url
             url = DubboProtocol.getDubboProtocol().getInvoker(channel, inv).getUrl();
         } catch (RemotingException e) {
             if (logger.isInfoEnabled()) {

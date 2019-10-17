@@ -57,7 +57,7 @@ public class HeaderExchangeHandler implements ChannelHandlerDelegate {
 //
     static void handleResponse(Channel channel, Response response) throws RemotingException {
         if (response != null && !response.isHeartbeat()) {
-//            接受业务数据响应处理=》
+//            接受业务数据响应处理=》com.alibaba.dubbo.remoting.exchange.support.DefaultFuture.received()
             DefaultFuture.received(channel, response);
         }
     }
@@ -72,13 +72,14 @@ public class HeaderExchangeHandler implements ChannelHandlerDelegate {
     }
 //
     void handlerEvent(Channel channel, Request req) throws RemotingException {
-//        设置只读事件
+//        设置只读事件，这里是服务优雅停机的处理逻辑会设置为只读
         if (req.getData() != null && req.getData().equals(Request.READONLY_EVENT)) {
             channel.setAttribute(Constants.CHANNEL_ATTRIBUTE_READONLY_KEY, Boolean.TRUE);
         }
     }
 //
     Response handleRequest(ExchangeChannel channel, Request req) throws RemotingException {
+//        这里用请求的唯一id作为标识构建响应对象
         Response res = new Response(req.getId(), req.getVersion());
         if (req.isBroken()) {
             Object data = req.getData();
@@ -95,7 +96,7 @@ public class HeaderExchangeHandler implements ChannelHandlerDelegate {
         // find handler by message class.
         Object msg = req.getData();
         try {
-            // handle data.
+            // handle data.=》DubboProtocol.com.alibaba.dubbo.remoting.exchange.support.ExchangeHandlerAdapter#reply
             Object result = handler.reply(channel, msg);
             res.setStatus(Response.OK);
             res.setResult(result);
@@ -176,6 +177,7 @@ public class HeaderExchangeHandler implements ChannelHandlerDelegate {
                 } else {
                     if (request.isTwoWay()) {
                         Response response = handleRequest(exchangeChannel, request);
+//                        消息发送com.alibaba.dubbo.remoting.transport.AbstractPeer.send()
                         channel.send(response);
                     } else {
                         handler.received(exchangeChannel, request.getData());

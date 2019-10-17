@@ -79,7 +79,7 @@ public class FailoverClusterInvoker<T> extends AbstractClusterInvoker<T> {
             invoked.add(invoker);
             RpcContext.getContext().setInvokers((List) invoked);
             try {
-//                执行业务方法=》com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper.buildInvokerChain com.alibaba.dubbo.rpc.Invoker.invoke()
+//                执行业务方法=》com.alibaba.dubbo.rpc.protocol.InvokerWrapper.invoke
                 Result result = invoker.invoke(invocation);
                 if (le != null && logger.isWarnEnabled()) {
                     logger.warn("Although retry the method " + invocation.getMethodName()

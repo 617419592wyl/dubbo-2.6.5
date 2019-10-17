@@ -414,7 +414,7 @@ public class ReferenceConfig<T> extends AbstractReferenceConfig {
             }
 
             if (urls.size() == 1) {
-//                查询远程rpc服务执行器=》
+//                查询远程rpc服务执行器=》com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper.refer()
                 invoker = refprotocol.refer(interfaceClass, urls.get(0));
             } else {
                 List<Invoker<?>> invokers = new ArrayList<Invoker<?>>();
