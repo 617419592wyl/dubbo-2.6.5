@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.alibaba.dubbo.common.serialize.Cleanable</OriginalElement>
+  <nodes>
+    <node x="167.0" y="0.0">com.alibaba.dubbo.common.serialize.DataInput</node>
+    <node x="210.0" y="227.0">com.alibaba.dubbo.common.serialize.Serialization</node>
+    <node x="0.0" y="227.0">com.alibaba.dubbo.common.serialize.support.SerializationOptimizer</node>
+    <node x="161.0" y="79.0">com.alibaba.dubbo.common.serialize.ObjectInput</node>
+    <node x="0.0" y="153.0">com.alibaba.dubbo.common.serialize.support.SerializableClassRegistry</node>
+    <node x="6.0" y="0.0">com.alibaba.dubbo.common.serialize.DataOutput</node>
+    <node x="0.0" y="79.0">com.alibaba.dubbo.common.serialize.ObjectOutput</node>
+    <node x="0.0" y="301.0">com.alibaba.dubbo.common.serialize.Cleanable</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.alibaba.dubbo.common.serialize.ObjectInput" target="com.alibaba.dubbo.common.serialize.DataInput">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.serialize.ObjectOutput" target="com.alibaba.dubbo.common.serialize.DataOutput">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="46.0" y="115.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

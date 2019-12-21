@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.alibaba.dubbo.validation.MethodValidated</OriginalElement>
+  <nodes>
+    <node x="194.5" y="0.0">com.alibaba.dubbo.validation.Validator</node>
+    <node x="0.0" y="232.0">com.alibaba.dubbo.validation.MethodValidated</node>
+    <node x="0.0" y="79.0">com.alibaba.dubbo.validation.support.AbstractValidation</node>
+    <node x="181.0" y="232.0">com.alibaba.dubbo.validation.filter.ValidationFilter</node>
+    <node x="26.5" y="0.0">com.alibaba.dubbo.validation.Validation</node>
+    <node x="191.0" y="79.0">com.alibaba.dubbo.validation.support.jvalidation.JValidator</node>
+    <node x="23.0" y="158.0">com.alibaba.dubbo.validation.support.jvalidation.JValidation</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.alibaba.dubbo.validation.support.jvalidation.JValidator" target="com.alibaba.dubbo.validation.Validator">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.validation.support.jvalidation.JValidation" target="com.alibaba.dubbo.validation.support.AbstractValidation">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.validation.support.AbstractValidation" target="com.alibaba.dubbo.validation.Validation">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="97.0" y="18.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

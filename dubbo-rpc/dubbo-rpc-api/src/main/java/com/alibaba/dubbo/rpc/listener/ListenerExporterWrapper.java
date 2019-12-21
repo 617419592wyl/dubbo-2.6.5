@@ -33,6 +33,7 @@ public class ListenerExporterWrapper<T> implements Exporter<T> {
     private static final Logger logger = LoggerFactory.getLogger(ListenerExporterWrapper.class);
 
 //    DubboExporter
+//    injvmExporter interface com.tianhe.lianxi.dubbo.api.HelloFacade -> injvm://127.0.0.1/com.tianhe.lianxi.dubbo.api.HelloFacade?anyhost=true&application=dubbo-provider&bean.name=providers:dubbo:com.tianhe.lianxi.dubbo.api.HelloFacade:1.0.0:helloGroup&bind.ip=172.28.82.218&bind.port=20880&dubbo=2.0.2&executes=200&generic=false&group=helloGroup&interface=com.tianhe.lianxi.dubbo.api.HelloFacade&methods=sayHello&pid=2528&revision=1.0.0&side=provider&timestamp=1573207327686&version=1.0.0
     private final Exporter<T> exporter;
 
     private final List<ExporterListener> listeners;

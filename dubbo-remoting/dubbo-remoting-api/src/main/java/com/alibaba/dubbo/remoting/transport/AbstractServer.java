@@ -52,15 +52,21 @@ public abstract class AbstractServer extends AbstractEndpoint implements Server 
         super(url, handler);
         localAddress = getUrl().toInetSocketAddress();
 
+//        获取bind.ip参数值，默认从url中查询host属性
         String bindIp = getUrl().getParameter(Constants.BIND_IP_KEY, getUrl().getHost());
+//        获取bind.port参数值，默认从url中查询port属性
         int bindPort = getUrl().getParameter(Constants.BIND_PORT_KEY, getUrl().getPort());
+//        查询anyhost参数值，默认false
         if (url.getParameter(Constants.ANYHOST_KEY, false) || NetUtils.isInvalidLocalHost(bindIp)) {
             bindIp = NetUtils.ANYHOST;
         }
         bindAddress = new InetSocketAddress(bindIp, bindPort);
+//        查询accepts参数，服务端可以接收处理的最大线程数，默认0不限制
         this.accepts = url.getParameter(Constants.ACCEPTS_KEY, Constants.DEFAULT_ACCEPTS);
+//        idle.timeout 空闲超时时间，默认600s
         this.idleTimeout = url.getParameter(Constants.IDLE_TIMEOUT_KEY, Constants.DEFAULT_IDLE_TIMEOUT);
         try {
+//            创建server
             doOpen();
             if (logger.isInfoEnabled()) {
                 logger.info("Start " + getClass().getSimpleName() + " bind " + getBindAddress() + ", export " + getLocalAddress());
@@ -84,6 +90,7 @@ public abstract class AbstractServer extends AbstractEndpoint implements Server 
             return;
         }
         try {
+//            重置accepts参数，服务端可以接收的最大线程数，默认值是0不限制
             if (url.hasParameter(Constants.ACCEPTS_KEY)) {
                 int a = url.getParameter(Constants.ACCEPTS_KEY, 0);
                 if (a > 0) {
@@ -94,6 +101,7 @@ public abstract class AbstractServer extends AbstractEndpoint implements Server 
             logger.error(t.getMessage(), t);
         }
         try {
+//            重置idle.timeout 空闲超时时间，默认值是0
             if (url.hasParameter(Constants.IDLE_TIMEOUT_KEY)) {
                 int t = url.getParameter(Constants.IDLE_TIMEOUT_KEY, 0);
                 if (t > 0) {
@@ -104,6 +112,7 @@ public abstract class AbstractServer extends AbstractEndpoint implements Server 
             logger.error(t.getMessage(), t);
         }
         try {
+//            重置threads参数，线程池线程数默认是200
             if (url.hasParameter(Constants.THREADS_KEY)
                     && executor instanceof ThreadPoolExecutor && !executor.isShutdown()) {
                 ThreadPoolExecutor threadPoolExecutor = (ThreadPoolExecutor) executor;

@@ -65,8 +65,9 @@ public class HeaderExchangeServer implements ExchangeServer {
             throw new IllegalArgumentException("server == null");
         }
         this.server = server;
-        this.heartbeat = server.getUrl().getParameter(Constants.HEARTBEAT_KEY, 0);
 //        心跳监测时间默认值是0
+        this.heartbeat = server.getUrl().getParameter(Constants.HEARTBEAT_KEY, 0);
+//        心跳监测超时时间默认值是0
         this.heartbeatTimeout = server.getUrl().getParameter(Constants.HEARTBEAT_TIMEOUT_KEY, heartbeat * 3);
         if (heartbeatTimeout < heartbeat * 2) {
             throw new IllegalStateException("heartbeatTimeout < heartbeatInterval * 2");
@@ -263,7 +264,7 @@ public class HeaderExchangeServer implements ExchangeServer {
                         @Override
                         public Collection<Channel> getChannels() {
                             return Collections.unmodifiableCollection(
-//                                    查询心跳监测的channel=》
+//                                    查询心跳监测的channel=》监测channel是否可用，如果可用封装成ExchangeChannel
                                     HeaderExchangeServer.this.getChannels());
                         }
                     }, heartbeat, heartbeatTimeout),

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.alibaba.dubbo.remoting.zookeeper.ChildListener</OriginalElement>
+  <nodes>
+    <node x="97.5" y="79.0">com.alibaba.dubbo.remoting.zookeeper.support.AbstractZookeeperClient</node>
+    <node x="181.0" y="385.0">com.alibaba.dubbo.remoting.zookeeper.StateListener</node>
+    <node x="200.0" y="158.0">com.alibaba.dubbo.remoting.zookeeper.zkclient.ZkclientZookeeperClient</node>
+    <node x="124.0" y="0.0">com.alibaba.dubbo.remoting.zookeeper.ZookeeperClient</node>
+    <node x="0.0" y="459.0">com.alibaba.dubbo.remoting.zookeeper.ChildListener</node>
+    <node x="0.0" y="158.0">com.alibaba.dubbo.remoting.zookeeper.curator.CuratorZookeeperClient</node>
+    <node x="0.0" y="385.0">com.alibaba.dubbo.remoting.zookeeper.zkclient.ZkClientWrapper</node>
+    <node x="144.0" y="232.0">com.alibaba.dubbo.remoting.zookeeper.ZookeeperTransporter</node>
+    <node x="240.0" y="311.0">com.alibaba.dubbo.remoting.zookeeper.curator.CuratorZookeeperTransporter</node>
+    <node x="0.0" y="311.0">com.alibaba.dubbo.remoting.zookeeper.zkclient.ZkclientZookeeperTransporter</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.alibaba.dubbo.remoting.zookeeper.support.AbstractZookeeperClient" target="com.alibaba.dubbo.remoting.zookeeper.ZookeeperClient">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.remoting.zookeeper.zkclient.ZkclientZookeeperTransporter" target="com.alibaba.dubbo.remoting.zookeeper.ZookeeperTransporter">
+      <point x="0.0" y="-14.5" />
+      <point x="110.0" y="286.0" />
+      <point x="186.75" y="286.0" />
+      <point x="-42.75" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.remoting.zookeeper.zkclient.ZkclientZookeeperClient" target="com.alibaba.dubbo.remoting.zookeeper.support.AbstractZookeeperClient">
+      <point x="0.0" y="-14.5" />
+      <point x="291.0" y="133.0" />
+      <point x="237.0" y="133.0" />
+      <point x="46.5" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.remoting.zookeeper.curator.CuratorZookeeperClient" target="com.alibaba.dubbo.remoting.zookeeper.support.AbstractZookeeperClient">
+      <point x="0.0" y="-14.5" />
+      <point x="90.0" y="133.0" />
+      <point x="144.0" y="133.0" />
+      <point x="-46.5" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.remoting.zookeeper.curator.CuratorZookeeperTransporter" target="com.alibaba.dubbo.remoting.zookeeper.ZookeeperTransporter">
+      <point x="0.0" y="-14.5" />
+      <point x="349.0" y="286.0" />
+      <point x="272.25" y="286.0" />
+      <point x="42.75" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="71.0" y="215.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

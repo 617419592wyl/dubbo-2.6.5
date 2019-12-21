@@ -375,6 +375,7 @@ public final class URL implements Serializable {
     public List<URL> getBackupUrls() {
         List<URL> urls = new ArrayList<URL>();
         urls.add(this);
+//        查询backup参数
         String[] backups = getParameter(Constants.BACKUP_KEY, new String[0]);
         if (backups != null && backups.length > 0) {
             for (String backup : backups) {

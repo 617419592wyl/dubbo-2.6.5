@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.alibaba.dubbo.common.status.Status</OriginalElement>
+  <nodes>
+    <node x="115.25" y="0.0">com.alibaba.dubbo.common.status.StatusChecker</node>
+    <node x="191.0" y="79.0">com.alibaba.dubbo.common.status.support.LoadStatusChecker</node>
+    <node x="0.0" y="79.0">com.alibaba.dubbo.common.status.support.MemoryStatusChecker</node>
+    <node x="0.0" y="153.0">com.alibaba.dubbo.common.status.Status</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.alibaba.dubbo.common.status.support.MemoryStatusChecker" target="com.alibaba.dubbo.common.status.StatusChecker">
+      <point x="0.0" y="-14.5" />
+      <point x="85.5" y="54.0" />
+      <point x="145.75" y="54.0" />
+      <point x="-30.5" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.status.support.LoadStatusChecker" target="com.alibaba.dubbo.common.status.StatusChecker">
+      <point x="0.0" y="-14.5" />
+      <point x="267.0" y="54.0" />
+      <point x="206.75" y="54.0" />
+      <point x="30.5" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="36.0" y="14.5" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

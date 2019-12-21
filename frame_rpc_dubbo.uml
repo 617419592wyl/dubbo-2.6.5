@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.alibaba.dubbo.rpc.protocol.dubbo.CallbackServiceCodec</OriginalElement>
+  <nodes>
+    <node x="210.0" y="222.0">com.alibaba.dubbo.rpc.protocol.dubbo.DecodeableRpcResult</node>
+    <node x="0.0" y="74.0">com.alibaba.dubbo.rpc.protocol.dubbo.status.ThreadPoolStatusChecker</node>
+    <node x="0.0" y="444.0">com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol</node>
+    <node x="439.0" y="148.0">com.alibaba.dubbo.rpc.protocol.dubbo.telnet.CurrentTelnetHandler</node>
+    <node x="0.0" y="222.0">com.alibaba.dubbo.rpc.protocol.dubbo.telnet.ChangeTelnetHandler</node>
+    <node x="170.0" y="444.0">com.alibaba.dubbo.rpc.protocol.dubbo.FutureAdapter</node>
+    <node x="189.0" y="370.0">com.alibaba.dubbo.rpc.protocol.dubbo.telnet.ListTelnetHandler</node>
+    <node x="237.0" y="74.0">com.alibaba.dubbo.rpc.protocol.dubbo.DecodeableRpcInvocation</node>
+    <node x="0.0" y="370.0">com.alibaba.dubbo.rpc.protocol.dubbo.telnet.PortTelnetHandler</node>
+    <node x="0.0" y="148.0">com.alibaba.dubbo.rpc.protocol.dubbo.ChannelWrappedInvoker</node>
+    <node x="228.0" y="148.0">com.alibaba.dubbo.rpc.protocol.dubbo.CallbackServiceCodec</node>
+    <node x="419.0" y="222.0">com.alibaba.dubbo.rpc.protocol.dubbo.status.ServerStatusChecker</node>
+    <node x="203.0" y="296.0">com.alibaba.dubbo.rpc.protocol.dubbo.telnet.CountTelnetHandler</node>
+    <node x="374.0" y="370.0">com.alibaba.dubbo.rpc.protocol.dubbo.DubboExporter</node>
+    <node x="499.0" y="444.0">com.alibaba.dubbo.rpc.protocol.dubbo.DubboCodec</node>
+    <node x="336.0" y="444.0">com.alibaba.dubbo.rpc.protocol.dubbo.DubboInvoker</node>
+    <node x="0.0" y="0.0">com.alibaba.dubbo.rpc.protocol.dubbo.ReferenceCountExchangeClient</node>
+    <node x="271.0" y="0.0">com.alibaba.dubbo.rpc.protocol.dubbo.LazyConnectExchangeClient</node>
+    <node x="0.0" y="296.0">com.alibaba.dubbo.rpc.protocol.dubbo.telnet.InvokeTelnetHandler</node>
+    <node x="0.0" y="518.0">com.alibaba.dubbo.rpc.protocol.dubbo.filter.FutureFilter</node>
+    <node x="404.0" y="296.0">com.alibaba.dubbo.rpc.protocol.dubbo.DubboCountCodec</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic Group" zoom="1.0" x="83.0" y="14.5" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

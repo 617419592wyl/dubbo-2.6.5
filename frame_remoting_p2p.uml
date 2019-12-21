@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.alibaba.dubbo.remoting.p2p.Group</OriginalElement>
+  <nodes>
+    <node x="411.0" y="158.0">com.alibaba.dubbo.remoting.p2p.support.MulticastGroup</node>
+    <node x="333.0" y="543.0">com.alibaba.dubbo.remoting.p2p.exchange.ExchangeNetworkers</node>
+    <node x="436.5" y="311.0">com.alibaba.dubbo.remoting.p2p.exchange.ExchangeNetworker</node>
+    <node x="158.5" y="390.0">com.alibaba.dubbo.remoting.p2p.support.ServerPeer</node>
+    <node x="207.0" y="237.0">com.alibaba.dubbo.remoting.p2p.exchange.support.FileExchangeGroup</node>
+    <node x="0.0" y="469.0">com.alibaba.dubbo.remoting.p2p.exchange.support.ExchangeServerPeer</node>
+    <node x="0.0" y="237.0">com.alibaba.dubbo.remoting.p2p.exchange.support.MulticastExchangeGroup</node>
+    <node x="113.75" y="311.0">com.alibaba.dubbo.remoting.p2p.Peer</node>
+    <node x="172.0" y="622.0">com.alibaba.dubbo.remoting.p2p.support.FileNetworker</node>
+    <node x="348.0" y="79.0">com.alibaba.dubbo.remoting.p2p.support.AbstractGroup</node>
+    <node x="533.5" y="390.0">com.alibaba.dubbo.remoting.p2p.exchange.support.FileExchangeNetworker</node>
+    <node x="301.5" y="390.0">com.alibaba.dubbo.remoting.p2p.exchange.support.MulticastExchangeNetworker</node>
+    <node x="280.25" y="0.0">com.alibaba.dubbo.remoting.p2p.Group</node>
+    <node x="105.0" y="543.0">com.alibaba.dubbo.remoting.p2p.Networker</node>
+    <node x="96.0" y="158.0">com.alibaba.dubbo.remoting.p2p.exchange.support.AbstractExchangeGroup</node>
+    <node x="122.5" y="79.0">com.alibaba.dubbo.remoting.p2p.exchange.ExchangeGroup</node>
+    <node x="300.0" y="158.0">com.alibaba.dubbo.remoting.p2p.support.FileGroup</node>
+    <node x="0.0" y="622.0">com.alibaba.dubbo.remoting.p2p.support.MulticastNetworker</node>
+    <node x="541.0" y="543.0">com.alibaba.dubbo.remoting.p2p.Networkers</node>
+    <node x="19.5" y="390.0">com.alibaba.dubbo.remoting.p2p.exchange.ExchangePeer</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.alibaba.dubbo.remoting.p2p.exchange.support.FileExchangeGroup" target="com.alibaba.dubbo.remoting.p2p.exchange.support.AbstractExchangeGroup">
+      <point x="0.0" y="-14.5" />
+      <point x="282.5" y="212.0" />
+      <point x="234.0" y="212.0" />
+      <point x="46.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.remoting.p2p.support.FileGroup" target="com.alibaba.dubbo.remoting.p2p.support.AbstractGroup">
+      <point x="0.0" y="-14.5" />
+      <point x="345.5" y="133.0" />
+      <point x="379.0" y="133.0" />
+      <point x="-31.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.remoting.p2p.support.FileNetworker" target="com.alibaba.dubbo.remoting.p2p.Networker">
+      <point x="0.0" y="-14.5" />
+      <point x="230.0" y="597.0" />
+      <point x="177.0" y="597.0" />
+      <point x="24.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.remoting.p2p.exchange.support.AbstractExchangeGroup" target="com.alibaba.dubbo.remoting.p2p.exchange.ExchangeGroup">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.remoting.p2p.support.MulticastNetworker" target="com.alibaba.dubbo.remoting.p2p.Networker">
+      <point x="0.0" y="-14.5" />
+      <point x="76.0" y="597.0" />
+      <point x="129.0" y="597.0" />
+      <point x="-24.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.remoting.p2p.exchange.ExchangePeer" target="com.alibaba.dubbo.remoting.p2p.Peer">
+      <point x="0.0" y="-14.5" />
+      <point x="79.0" y="365.0" />
+      <point x="128.5" y="365.0" />
+      <point x="-14.75" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.remoting.p2p.support.ServerPeer" target="com.alibaba.dubbo.remoting.p2p.Peer">
+      <point x="0.0" y="-14.5" />
+      <point x="207.5" y="365.0" />
+      <point x="158.0" y="365.0" />
+      <point x="14.75" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.remoting.p2p.exchange.support.MulticastExchangeGroup" target="com.alibaba.dubbo.remoting.p2p.exchange.support.AbstractExchangeGroup">
+      <point x="0.0" y="-14.5" />
+      <point x="93.5" y="212.0" />
+      <point x="142.0" y="212.0" />
+      <point x="-46.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.remoting.p2p.exchange.support.ExchangeServerPeer" target="com.alibaba.dubbo.remoting.p2p.exchange.ExchangePeer">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.remoting.p2p.exchange.support.MulticastExchangeNetworker" target="com.alibaba.dubbo.remoting.p2p.exchange.ExchangeNetworker">
+      <point x="0.0" y="-14.5" />
+      <point x="407.5" y="365.0" />
+      <point x="475.5" y="365.0" />
+      <point x="-39.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.remoting.p2p.support.MulticastGroup" target="com.alibaba.dubbo.remoting.p2p.support.AbstractGroup">
+      <point x="0.0" y="-14.5" />
+      <point x="474.5" y="133.0" />
+      <point x="441.0" y="133.0" />
+      <point x="31.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.remoting.p2p.support.AbstractGroup" target="com.alibaba.dubbo.remoting.p2p.Group">
+      <point x="0.0" y="-14.5" />
+      <point x="410.0" y="54.0" />
+      <point x="333.5" y="54.0" />
+      <point x="17.75" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.remoting.p2p.exchange.support.FileExchangeNetworker" target="com.alibaba.dubbo.remoting.p2p.exchange.ExchangeNetworker">
+      <point x="0.0" y="-14.5" />
+      <point x="621.5" y="365.0" />
+      <point x="553.5" y="365.0" />
+      <point x="39.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.remoting.p2p.exchange.ExchangeGroup" target="com.alibaba.dubbo.remoting.p2p.Group">
+      <point x="0.0" y="-14.5" />
+      <point x="188.0" y="54.0" />
+      <point x="298.0" y="54.0" />
+      <point x="-17.75" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="196.0" y="155.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

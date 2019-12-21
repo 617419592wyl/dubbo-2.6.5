@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.alibaba.dubbo.common.serialize.fastjson.FastJsonObjectInput</OriginalElement>
+  <nodes>
+    <node x="0.0" y="0.0">com.alibaba.dubbo.common.serialize.fastjson.FastJsonObjectOutput</node>
+    <node x="0.0" y="148.0">com.alibaba.dubbo.common.serialize.fastjson.FastJsonObjectInput</node>
+    <node x="0.0" y="74.0">com.alibaba.dubbo.common.serialize.fastjson.FastJsonSerialization</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic Group" zoom="1.0" x="80.0" y="93.5" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

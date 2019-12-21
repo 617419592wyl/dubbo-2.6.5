@@ -25,7 +25,9 @@ import com.alibaba.dubbo.rpc.RpcException;
 
 //
 public class DelegateProviderMetaDataInvoker<T> implements Invoker {
+//    JavassistProxyFactory
     protected final Invoker<T> invoker;
+//    <dubbo:service beanName="providers:dubbo:com.tianhe.lianxi.dubbo.api.HelloFacade:1.0.0:helloGroup" path="com.tianhe.lianxi.dubbo.api.HelloFacade" ref="com.tianhe.lianxi.dubbo.provider.facade.impl.HelloFacadeImpl@25ad4f71" generic="false" interface="com.tianhe.lianxi.dubbo.api.HelloFacade" uniqueServiceName="helloGroup/com.tianhe.lianxi.dubbo.api.HelloFacade:1.0.0" exported="true" unexported="false" group="helloGroup" version="1.0.0" executes="200" id="com.tianhe.lianxi.dubbo.api.HelloFacade" />
     private ServiceConfig metadata;
 
     public DelegateProviderMetaDataInvoker(Invoker<T> invoker,ServiceConfig metadata) {

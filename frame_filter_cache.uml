@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.alibaba.dubbo.cache.Cache</OriginalElement>
+  <nodes>
+    <node x="165.0" y="311.0">com.alibaba.dubbo.cache.support.lru.LruCache</node>
+    <node x="101.75" y="0.0">com.alibaba.dubbo.cache.CacheFactory</node>
+    <node x="300.0" y="232.0">com.alibaba.dubbo.cache.filter.CacheFilter</node>
+    <node x="106.25" y="232.0">com.alibaba.dubbo.cache.Cache</node>
+    <node x="0.0" y="311.0">com.alibaba.dubbo.cache.support.threadlocal.ThreadLocalCache</node>
+    <node x="75.25" y="79.0">com.alibaba.dubbo.cache.support.AbstractCacheFactory</node>
+    <node x="0.0" y="158.0">com.alibaba.dubbo.cache.support.lru.LruCacheFactory</node>
+    <node x="156.0" y="158.0">com.alibaba.dubbo.cache.support.threadlocal.ThreadLocalCacheFactory</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.alibaba.dubbo.cache.support.AbstractCacheFactory" target="com.alibaba.dubbo.cache.CacheFactory">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.cache.support.lru.LruCacheFactory" target="com.alibaba.dubbo.cache.support.AbstractCacheFactory">
+      <point x="0.0" y="-14.5" />
+      <point x="68.0" y="133.0" />
+      <point x="117.5" y="133.0" />
+      <point x="-42.25" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.cache.support.lru.LruCache" target="com.alibaba.dubbo.cache.Cache">
+      <point x="0.0" y="-14.5" />
+      <point x="210.0" y="286.0" />
+      <point x="158.75" y="286.0" />
+      <point x="17.5" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.cache.support.threadlocal.ThreadLocalCache" target="com.alibaba.dubbo.cache.Cache">
+      <point x="0.0" y="-14.5" />
+      <point x="72.5" y="286.0" />
+      <point x="123.75" y="286.0" />
+      <point x="-17.5" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.cache.support.threadlocal.ThreadLocalCacheFactory" target="com.alibaba.dubbo.cache.support.AbstractCacheFactory">
+      <point x="0.0" y="-14.5" />
+      <point x="251.5" y="133.0" />
+      <point x="202.0" y="133.0" />
+      <point x="42.25" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="50.0" y="155.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

@@ -27,10 +27,10 @@ import java.util.Map;
 
 //
 public class ProviderModel {
-    private final String serviceName;
+    private final String serviceName;//helloGroup/com.tianhe.lianxi.dubbo.api.HelloFacade:1.0.0
     private final Object serviceInstance;
-    private final ServiceConfig metadata;
-    private final Map<String, List<ProviderMethodModel>> methods = new HashMap<String, List<ProviderMethodModel>>();
+    private final ServiceConfig metadata;//<dubbo:service beanName="providers:dubbo:com.tianhe.lianxi.dubbo.api.HelloFacade:1.0.0:helloGroup" path="com.tianhe.lianxi.dubbo.api.HelloFacade" ref="com.tianhe.lianxi.dubbo.provider.facade.impl.HelloFacadeImpl@25ad4f71" generic="false" interface="com.tianhe.lianxi.dubbo.api.HelloFacade" uniqueServiceName="helloGroup/com.tianhe.lianxi.dubbo.api.HelloFacade:1.0.0" exported="true" unexported="false" group="helloGroup" version="1.0.0" executes="200" id="com.tianhe.lianxi.dubbo.api.HelloFacade" />
+    private final Map<String, List<ProviderMethodModel>> methods = new HashMap<String, List<ProviderMethodModel>>();//"sayHello" -> " size = 1"
 
     public ProviderModel(String serviceName, ServiceConfig metadata, Object serviceInstance) {
         if (null == serviceInstance) {

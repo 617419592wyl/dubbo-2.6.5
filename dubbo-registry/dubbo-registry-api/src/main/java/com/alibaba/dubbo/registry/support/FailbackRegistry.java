@@ -269,7 +269,7 @@ public abstract class FailbackRegistry extends AbstractRegistry {
             throw new IllegalArgumentException("notify listener == null");
         }
         try {
-//            监听器通知=》
+//            监听器通知=》consumer://172.28.87.51/com.alibaba.dubbo.demo.DemoService?application=demo-consumer&category=providers,configurators,routers&check=false&default.client=netty4&dubbo=2.0.2&interface=com.alibaba.dubbo.demo.DemoService&methods=sayHello&pid=28891&qos.port=33333&side=consumer&timeout=3000000&timestamp=1574145444282
             doNotify(url, listener, urls);
         } catch (Exception t) {
             // Record a failed registration request to a failed list, retry regularly 将失败的注册请求记录到失败列表中，定期重试

@@ -131,7 +131,7 @@ public class DubboInvoker<T> extends AbstractInvoker<T> {
         if (super.isDestroyed()) {
             return;
         } else {
-            // double check to avoid dup close
+            // double check to avoid dup close再次检查，以避免dup关闭
             destroyLock.lock();
             try {
                 if (super.isDestroyed()) {

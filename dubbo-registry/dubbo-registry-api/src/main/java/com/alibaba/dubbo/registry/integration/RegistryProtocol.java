@@ -117,7 +117,7 @@ public class RegistryProtocol implements Protocol {
     public void register(URL registryUrl, URL registedProviderUrl) {
 //        查询注册器=》
         Registry registry = registryFactory.getRegistry(registryUrl);
-//      服务注册=》FailbackRegistry.register()
+//      服务注册=》FailbackRegistry.register() zookeeper://192.168.50.251:2181/com.alibaba.dubbo.registry.RegistryService?application=dubbo-provider&dubbo=2.0.2&interface=com.alibaba.dubbo.registry.RegistryService&pid=14414&timestamp=1573209627099
         registry.register(registedProviderUrl);
     }
 
@@ -126,7 +126,7 @@ public class RegistryProtocol implements Protocol {
         //export invoker 本地服务=》
         final ExporterChangeableWrapper<T> exporter = doLocalExport(originInvoker);
 
-//        查询注册的url=》
+//        查询注册的url=》zookeeper://192.168.50.251:2181/com.alibaba.dubbo.registry.RegistryService?application=dubbo-provider&dubbo=2.0.2&export=dubbo%3A%2F%2F172.28.82.218%3A20880%2Fcom.tianhe.lianxi.dubbo.api.HelloFacade%3Fanyhost%3Dtrue%26application%3Ddubbo-provider%26bean.name%3Dproviders%3Adubbo%3Acom.tianhe.lianxi.dubbo.api.HelloFacade%3A1.0.0%3AhelloGroup%26bind.ip%3D172.28.82.218%26bind.port%3D20880%26dubbo%3D2.0.2%26executes%3D200%26generic%3Dfalse%26group%3DhelloGroup%26interface%3Dcom.tianhe.lianxi.dubbo.api.HelloFacade%26methods%3DsayHello%26pid%3D91252%26revision%3D1.0.0%26side%3Dprovider%26timestamp%3D1573208996919%26version%3D1.0.0&pid=91252&timestamp=1573208996167
         URL registryUrl = getRegistryUrl(originInvoker);
 
         //registry provider 注册服务提供者=》ZookeeperRegistry
@@ -166,14 +166,17 @@ public class RegistryProtocol implements Protocol {
 // export=dubbo://172.28.83.80:20880/com.alibaba.dubbo.demo.DemoService?anyhost=true&application=demo-provider&bean.name=com.alibaba.dubbo.demo.DemoService&bind.ip=172.28.83.80&
 // bind.port=20880&dubbo=2.0.2&generic=false&interface=com.alibaba.dubbo.demo.DemoService&methods=sayHello&pid=74694&qos.port=22222&side=provider&timestamp=1569832059888&pid=74694
 // &qos.port=22222&registry=zookeeper&timestamp=1569832059853
+
+//        dubbo://172.28.82.218:20880/com.tianhe.lianxi.dubbo.api.HelloFacade?anyhost=true&application=dubbo-provider&bean.name=providers:dubbo:com.tianhe.lianxi.dubbo.api.HelloFacade:1.0.0:helloGroup&bind.ip=172.28.82.218&bind.port=20880&dubbo=2.0.2&executes=200&generic=false&group=helloGroup&interface=com.tianhe.lianxi.dubbo.api.HelloFacade&methods=sayHello&pid=91252&revision=1.0.0&side=provider&timestamp=1573208996919&version=1.0.0
         String key = getCacheKey(originInvoker);
         ExporterChangeableWrapper<T> exporter = (ExporterChangeableWrapper<T>) bounds.get(key);
         if (exporter == null) {
             synchronized (bounds) {
                 exporter = (ExporterChangeableWrapper<T>) bounds.get(key);
                 if (exporter == null) {
+//                    RegistryProtocol InvokerDelegete
                     final Invoker<?> invokerDelegete = new InvokerDelegete<T>(originInvoker, getProviderUrl(originInvoker));
-//                   导出服务=》ListenerExporterWrapper
+//                   导出服务=》com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol.export
                     exporter = new ExporterChangeableWrapper<T>((Exporter<T>) protocol.export(invokerDelegete), originInvoker);
                     bounds.put(key, exporter);
                 }
@@ -191,12 +194,13 @@ public class RegistryProtocol implements Protocol {
     @SuppressWarnings("unchecked")
     private <T> void doChangeLocalExport(final Invoker<T> originInvoker, URL newInvokerUrl) {
         String key = getCacheKey(originInvoker);
+//        找到之前的exporter
         final ExporterChangeableWrapper<T> exporter = (ExporterChangeableWrapper<T>) bounds.get(key);
         if (exporter == null) {
             logger.warn(new IllegalStateException("error state, exporter should not be null"));
         } else {
             final Invoker<T> invokerDelegete = new InvokerDelegete<T>(originInvoker, newInvokerUrl);
-//            导出服务=》
+//            导出服务后更新exporter=》
             exporter.setExporter(protocol.export(invokerDelegete));
         }
     }
@@ -210,6 +214,7 @@ public class RegistryProtocol implements Protocol {
     private Registry getRegistry(final Invoker<?> originInvoker) {
 //        查询注册的url=》
         URL registryUrl = getRegistryUrl(originInvoker);
+//        这里是工厂模式
         return registryFactory.getRegistry(registryUrl);
     }
 
@@ -393,6 +398,8 @@ public class RegistryProtocol implements Protocol {
         @Override
         public synchronized void notify(List<URL> urls) {
             logger.debug("original override urls: " + urls);
+//            判断当前监听器订阅的url是否一致
+//            provider://172.28.87.51:20880/com.alibaba.dubbo.demo.DemoService?anyhost=true&application=demo-provider&bean.name=com.alibaba.dubbo.demo.DemoService&category=configurators&check=false&default.server=netty4&dubbo=2.0.2&generic=false&interface=com.alibaba.dubbo.demo.DemoService&methods=sayHello&pid=9611&side=provider&timestamp=1574156237792
             List<URL> matchedUrls = getMatchedUrls(urls, subscribeUrl);
             logger.debug("subscribe url: " + subscribeUrl + ", override urls: " + matchedUrls);
             // No matching results
@@ -409,19 +416,23 @@ public class RegistryProtocol implements Protocol {
                 invoker = originInvoker;
             }
             //The origin invoker 获取执行器的服务提供者url
+//            dubbo://172.28.87.51:20880/com.alibaba.dubbo.demo.DemoService?anyhost=true&application=demo-provider&bean.name=com.alibaba.dubbo.demo.DemoService&bind.ip=172.28.87.51&bind.port=20880&default.server=netty4&dubbo=2.0.2&generic=false&interface=com.alibaba.dubbo.demo.DemoService&methods=sayHello&pid=9611&qos.port=22222&side=provider&timestamp=1574156237792
             URL originUrl = RegistryProtocol.this.getProviderUrl(invoker);
+//            根据invoker找到provider url
+//            dubbo://172.28.87.51:20880/com.alibaba.dubbo.demo.DemoService?anyhost=true&application=demo-provider&bean.name=com.alibaba.dubbo.demo.DemoService&bind.ip=172.28.87.51&bind.port=20880&default.server=netty4&dubbo=2.0.2&generic=false&interface=com.alibaba.dubbo.demo.DemoService&methods=sayHello&pid=9611&qos.port=22222&side=provider&timestamp=1574156237792
             String key = getCacheKey(originInvoker);
+//            根据provider url找到本地的exporter
             ExporterChangeableWrapper<?> exporter = bounds.get(key);
             if (exporter == null) {
                 logger.warn(new IllegalStateException("error state, exporter should not be null"));
                 return;
             }
-            //The current, may have been merged many times
+            //The current, may have been merged many times当前，可能已经合并了很多次
             URL currentUrl = exporter.getInvoker().getUrl();
             //Merged with this configuration
             URL newUrl = getConfigedInvokerUrl(configurators, originUrl);
             if (!currentUrl.equals(newUrl)) {
-//                =》
+//                =》服务export的url发生改变了重新export服务
                 RegistryProtocol.this.doChangeLocalExport(originInvoker, newUrl);
                 logger.info("exported provider url changed, origin url: " + originUrl + ", old export url: " + currentUrl + ", new export url: " + newUrl);
             }
@@ -462,7 +473,9 @@ public class RegistryProtocol implements Protocol {
      */
     private class ExporterChangeableWrapper<T> implements Exporter<T> {
 
+//        DelegateProviderMetaDataInvoker
         private final Invoker<T> originInvoker;
+//        ListenerExporterWrapper
         private Exporter<T> exporter;
 
         public ExporterChangeableWrapper(Exporter<T> exporter, Invoker<T> originInvoker) {
@@ -496,9 +509,13 @@ public class RegistryProtocol implements Protocol {
 
         public static final ExecutorService executor = Executors.newSingleThreadExecutor(new NamedThreadFactory("Exporter-Unexport", true));
 
+//        ExporterChangeableWrapper
         private Exporter<T> exporter;
+//        DelegateProviderMetaDataInvoker
         private Invoker<T> originInvoker;
+//        provider://172.28.82.218:20880/com.tianhe.lianxi.dubbo.api.HelloFacade?anyhost=true&application=dubbo-provider&bean.name=providers:dubbo:com.tianhe.lianxi.dubbo.api.HelloFacade:1.0.0:helloGroup&category=configurators&check=false&dubbo=2.0.2&executes=200&generic=false&group=helloGroup&interface=com.tianhe.lianxi.dubbo.api.HelloFacade&methods=sayHello&pid=14414&revision=1.0.0&side=provider&timestamp=1573209627465&version=1.0.0
         private URL subscribeUrl;
+//        dubbo://172.28.82.218:20880/com.tianhe.lianxi.dubbo.api.HelloFacade?anyhost=true&application=dubbo-provider&bean.name=providers:dubbo:com.tianhe.lianxi.dubbo.api.HelloFacade:1.0.0:helloGroup&dubbo=2.0.2&executes=200&generic=false&group=helloGroup&interface=com.tianhe.lianxi.dubbo.api.HelloFacade&methods=sayHello&pid=14414&revision=1.0.0&side=provider&timestamp=1573209627465&version=1.0.0
         private URL registerUrl;
 
         public DestroyableExporter(Exporter<T> exporter, Invoker<T> originInvoker, URL subscribeUrl, URL registerUrl) {

@@ -27,8 +27,10 @@ import java.util.Map;
  */
 class InjvmExporter<T> extends AbstractExporter<T> {
 
+//    helloGroup/com.tianhe.lianxi.dubbo.api.HelloFacade:1.0.0
     private final String key;
 
+//    "helloGroup/com.tianhe.lianxi.dubbo.api.HelloFacade:1.0.0" -> "interface com.tianhe.lianxi.dubbo.api.HelloFacade -> injvm://127.0.0.1/com.tianhe.lianxi.dubbo.api.HelloFacade?anyhost=true&application=dubbo-provider&bean.name=providers:dubbo:com.tianhe.lianxi.dubbo.api.HelloFacade:1.0.0:helloGroup&bind.ip=172.28.82.218&bind.port=20880&dubbo=2.0.2&executes=200&generic=false&group=helloGroup&interface=com.tianhe.lianxi.dubbo.api.HelloFacade&methods=sayHello&pid=2528&revision=1.0.0&side=provider&timestamp=1573207327686&version=1.0.0"
     private final Map<String, Exporter<?>> exporterMap;
 
     InjvmExporter(Invoker<T> invoker, String key, Map<String, Exporter<?>> exporterMap) {

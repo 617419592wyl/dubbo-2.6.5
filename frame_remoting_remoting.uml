@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.alibaba.dubbo.remoting.Channel</OriginalElement>
+  <nodes>
+    <node x="102.0" y="79.0">com.alibaba.dubbo.remoting.Server</node>
+    <node x="148.0" y="306.0">com.alibaba.dubbo.remoting.Dispatcher</node>
+    <node x="291.0" y="306.0">com.alibaba.dubbo.remoting.Codec2</node>
+    <node x="0.0" y="306.0">com.alibaba.dubbo.remoting.Decodeable</node>
+    <node x="83.8" y="158.0">com.alibaba.dubbo.remoting.Client</node>
+    <node x="0.0" y="232.0">com.alibaba.dubbo.remoting.Transporters</node>
+    <node x="234.5" y="0.0">com.alibaba.dubbo.remoting.ChannelHandler</node>
+    <node x="89.26666666666667" y="0.0">com.alibaba.dubbo.remoting.Endpoint</node>
+    <node x="0.0" y="79.0">com.alibaba.dubbo.remoting.Channel</node>
+    <node x="157.0" y="232.0">com.alibaba.dubbo.remoting.Transporter</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.alibaba.dubbo.remoting.Client" target="com.alibaba.dubbo.remoting.Channel">
+      <point x="-16.75" y="-14.5" />
+      <point x="100.55" y="133.0" />
+      <point x="41.0" y="133.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.remoting.Client" target="com.alibaba.dubbo.remoting.Endpoint">
+      <point x="16.75" y="-14.5" />
+      <point x="134.05" y="133.0" />
+      <point x="183.5" y="133.0" />
+      <point x="183.5" y="54.0" />
+      <point x="162.6" y="54.0" />
+      <point x="29.33333333333333" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.remoting.Server" target="com.alibaba.dubbo.remoting.Endpoint">
+      <point x="0.0" y="-14.5" />
+      <point x="137.5" y="54.0" />
+      <point x="133.26666666666665" y="54.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.remoting.Channel" target="com.alibaba.dubbo.remoting.Endpoint">
+      <point x="0.0" y="-14.5" />
+      <point x="41.0" y="54.0" />
+      <point x="103.93333333333334" y="54.0" />
+      <point x="-29.333333333333332" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="44.0" y="54.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

@@ -163,7 +163,7 @@ public class ZookeeperRegistry extends FailbackRegistry {
                     });
                     zkListener = listeners.get(listener);
                 }
-//                创建zk持久节点
+//                创建zk持久节点,默认是dubbo
                 zkClient.create(root, false);
 //                添加zk监听器，订阅服务注册根节点=》
                 List<String> services = zkClient.addChildListener(root, zkListener);
@@ -177,6 +177,13 @@ public class ZookeeperRegistry extends FailbackRegistry {
                 }
             } else {
                 List<URL> urls = new ArrayList<URL>();
+//                /dubbo/com.tianhe.lianxi.dubbo.api.HelloFacade/configurators
+//                provider://172.28.87.51:20880/com.alibaba.dubbo.demo.DemoService?anyhost=true&application=demo-provider&bean.name=com.alibaba.dubbo.demo.DemoService&category=configurators&check=false&default.server=netty4&dubbo=2.0.2&generic=false&interface=com.alibaba.dubbo.demo.DemoService&methods=sayHello&pid=24262&side=provider&timestamp=1574145319171
+
+//                consumer://172.28.87.51/com.alibaba.dubbo.demo.DemoService?application=demo-consumer&category=providers,configurators,routers&check=false&default.client=netty4&dubbo=2.0.2&interface=com.alibaba.dubbo.demo.DemoService&methods=sayHello&pid=28891&qos.port=33333&side=consumer&timeout=3000000&timestamp=1574145444282
+//                /dubbo/com.alibaba.dubbo.demo.DemoService/providers
+//                /dubbo/com.alibaba.dubbo.demo.DemoService/configurators
+//                /dubbo/com.alibaba.dubbo.demo.DemoService/routers
                 for (String path : toCategoriesPath(url)) {
                     ConcurrentMap<NotifyListener, ChildListener> listeners = zkListeners.get(url);
                     if (listeners == null) {
@@ -194,7 +201,9 @@ public class ZookeeperRegistry extends FailbackRegistry {
                         });
                         zkListener = listeners.get(listener);
                     }
-//                    创建zk持久节点
+//                    创建zk持久节点 /dubbo/com.alibaba.dubbo.demo.DemoService/providers
+//                    /dubbo/com.alibaba.dubbo.demo.DemoService/configurators
+//                     /dubbo/com.alibaba.dubbo.demo.DemoService/routers
                     zkClient.create(path, false);
 //                    添加节点监听器
                     List<String> children = zkClient.addChildListener(path, zkListener);
@@ -202,7 +211,7 @@ public class ZookeeperRegistry extends FailbackRegistry {
                         urls.addAll(toUrlsWithEmpty(url, path, children));
                     }
                 }
-//                监听器通知=》
+//                监听器通知=》OverrideListener
                 notify(url, listener, urls);
             }
         } catch (Throwable e) {

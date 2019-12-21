@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.alibaba.dubbo.remoting.http.HttpBinder</OriginalElement>
+  <nodes>
+    <node x="0.0" y="79.0">com.alibaba.dubbo.remoting.http.support.AbstractHttpServer</node>
+    <node x="11.0" y="158.0">com.alibaba.dubbo.remoting.http.jetty.JettyHttpServer</node>
+    <node x="26.5" y="0.0">com.alibaba.dubbo.remoting.http.HttpServer</node>
+    <node x="0.0" y="311.0">com.alibaba.dubbo.remoting.http.jetty.JettyHttpBinder</node>
+    <node x="15.5" y="232.0">com.alibaba.dubbo.remoting.http.HttpBinder</node>
+    <node x="176.0" y="232.0">com.alibaba.dubbo.remoting.http.HttpHandler</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.alibaba.dubbo.remoting.http.jetty.JettyHttpBinder" target="com.alibaba.dubbo.remoting.http.HttpBinder">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.remoting.http.jetty.JettyHttpServer" target="com.alibaba.dubbo.remoting.http.support.AbstractHttpServer">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.remoting.http.support.AbstractHttpServer" target="com.alibaba.dubbo.remoting.http.HttpServer">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="142.0" y="170.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

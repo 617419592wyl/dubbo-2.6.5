@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.alibaba.dubbo.rpc.cluster.Cluster</OriginalElement>
+  <nodes>
+    <node x="115.5" y="0.0">com.alibaba.dubbo.rpc.cluster.Configurator</node>
+    <node x="134.5" y="232.0">com.alibaba.dubbo.rpc.cluster.ConfiguratorFactory</node>
+    <node x="221.0" y="311.0">com.alibaba.dubbo.rpc.cluster.configurator.override.OverrideConfiguratorFactory</node>
+    <node x="183.0" y="158.0">com.alibaba.dubbo.rpc.cluster.configurator.absent.AbsentConfigurator</node>
+    <node x="89.0" y="79.0">com.alibaba.dubbo.rpc.cluster.configurator.AbstractConfigurator</node>
+    <node x="0.0" y="311.0">com.alibaba.dubbo.rpc.cluster.configurator.absent.AbsentConfiguratorFactory</node>
+    <node x="0.0" y="158.0">com.alibaba.dubbo.rpc.cluster.configurator.override.OverrideConfigurator</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.alibaba.dubbo.rpc.cluster.configurator.AbstractConfigurator" target="com.alibaba.dubbo.rpc.cluster.Configurator">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.rpc.cluster.configurator.absent.AbsentConfigurator" target="com.alibaba.dubbo.rpc.cluster.configurator.AbstractConfigurator">
+      <point x="0.0" y="-14.5" />
+      <point x="260.5" y="133.0" />
+      <point x="212.0" y="133.0" />
+      <point x="41.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.rpc.cluster.configurator.absent.AbsentConfiguratorFactory" target="com.alibaba.dubbo.rpc.cluster.ConfiguratorFactory">
+      <point x="0.0" y="-14.5" />
+      <point x="100.5" y="286.0" />
+      <point x="173.75" y="286.0" />
+      <point x="-39.25" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.rpc.cluster.configurator.override.OverrideConfiguratorFactory" target="com.alibaba.dubbo.rpc.cluster.ConfiguratorFactory">
+      <point x="0.0" y="-14.5" />
+      <point x="325.5" y="286.0" />
+      <point x="252.25" y="286.0" />
+      <point x="39.25" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.rpc.cluster.configurator.override.OverrideConfigurator" target="com.alibaba.dubbo.rpc.cluster.configurator.AbstractConfigurator">
+      <point x="0.0" y="-14.5" />
+      <point x="81.5" y="133.0" />
+      <point x="130.0" y="133.0" />
+      <point x="-41.0" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="574.0" y="206.5" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

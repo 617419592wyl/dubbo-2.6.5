@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.alibaba.dubbo.remoting.transport.dispatcher.ChannelEventRunnable</OriginalElement>
+  <nodes>
+    <node x="204.0" y="301.0">com.alibaba.dubbo.remoting.transport.dispatcher.ChannelHandlers</node>
+    <node x="352.5" y="0.0">com.alibaba.dubbo.remoting.transport.dispatcher.WrappedChannelHandler</node>
+    <node x="211.0" y="79.0">com.alibaba.dubbo.remoting.transport.dispatcher.connection.ConnectionOrderedChannelHandler</node>
+    <node x="0.0" y="301.0">com.alibaba.dubbo.remoting.transport.dispatcher.execution.ExecutionDispatcher</node>
+    <node x="0.0" y="375.0">com.alibaba.dubbo.remoting.transport.dispatcher.direct.DirectDispatcher</node>
+    <node x="482.0" y="79.0">com.alibaba.dubbo.remoting.transport.dispatcher.all.AllChannelHandler</node>
+    <node x="647.0" y="79.0">com.alibaba.dubbo.remoting.transport.dispatcher.message.MessageOnlyChannelHandler</node>
+    <node x="0.0" y="79.0">com.alibaba.dubbo.remoting.transport.dispatcher.execution.ExecutionChannelHandler</node>
+    <node x="225.0" y="227.0">com.alibaba.dubbo.remoting.transport.dispatcher.ChannelEventRunnable</node>
+    <node x="0.0" y="227.0">com.alibaba.dubbo.remoting.transport.dispatcher.message.MessageOnlyDispatcher</node>
+    <node x="0.0" y="153.0">com.alibaba.dubbo.remoting.transport.dispatcher.connection.ConnectionOrderedDispatcher</node>
+    <node x="179.0" y="375.0">com.alibaba.dubbo.remoting.transport.dispatcher.all.AllDispatcher</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.alibaba.dubbo.remoting.transport.dispatcher.message.MessageOnlyChannelHandler" target="com.alibaba.dubbo.remoting.transport.dispatcher.WrappedChannelHandler">
+      <point x="0.0" y="-14.5" />
+      <point x="753.0" y="49.0" />
+      <point x="515.25" y="49.0" />
+      <point x="69.75" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.remoting.transport.dispatcher.all.AllChannelHandler" target="com.alibaba.dubbo.remoting.transport.dispatcher.WrappedChannelHandler">
+      <point x="0.0" y="-14.5" />
+      <point x="554.5" y="59.0" />
+      <point x="468.75" y="59.0" />
+      <point x="23.25" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.remoting.transport.dispatcher.connection.ConnectionOrderedChannelHandler" target="com.alibaba.dubbo.remoting.transport.dispatcher.WrappedChannelHandler">
+      <point x="0.0" y="-14.5" />
+      <point x="336.5" y="59.0" />
+      <point x="422.25" y="59.0" />
+      <point x="-23.25" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.remoting.transport.dispatcher.execution.ExecutionChannelHandler" target="com.alibaba.dubbo.remoting.transport.dispatcher.WrappedChannelHandler">
+      <point x="0.0" y="-14.5" />
+      <point x="95.5" y="49.0" />
+      <point x="375.75" y="49.0" />
+      <point x="-69.75" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="87.0" y="93.5" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

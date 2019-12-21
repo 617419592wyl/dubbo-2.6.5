@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.alibaba.dubbo.rpc.cluster.merger.ArrayMerger</OriginalElement>
+  <nodes>
+    <node x="0.0" y="370.0">com.alibaba.dubbo.rpc.cluster.merger.MapMerger</node>
+    <node x="0.0" y="296.0">com.alibaba.dubbo.rpc.cluster.merger.MergerFactory</node>
+    <node x="146.0" y="370.0">com.alibaba.dubbo.rpc.cluster.merger.ListMerger</node>
+    <node x="181.0" y="222.0">com.alibaba.dubbo.rpc.cluster.merger.IntArrayMerger</node>
+    <node x="0.0" y="0.0">com.alibaba.dubbo.rpc.cluster.merger.BooleanArrayMerger</node>
+    <node x="0.0" y="74.0">com.alibaba.dubbo.rpc.cluster.merger.ShortArrayMerger</node>
+    <node x="166.0" y="296.0">com.alibaba.dubbo.rpc.cluster.merger.ArrayMerger</node>
+    <node x="288.0" y="370.0">com.alibaba.dubbo.rpc.cluster.merger.SetMerger</node>
+    <node x="203.0" y="0.0">com.alibaba.dubbo.rpc.cluster.merger.DoubleArrayMerger</node>
+    <node x="0.0" y="222.0">com.alibaba.dubbo.rpc.cluster.merger.ByteArrayMerger</node>
+    <node x="0.0" y="148.0">com.alibaba.dubbo.rpc.cluster.merger.FloatArrayMerger</node>
+    <node x="187.0" y="74.0">com.alibaba.dubbo.rpc.cluster.merger.LongArrayMerger</node>
+    <node x="183.0" y="148.0">com.alibaba.dubbo.rpc.cluster.merger.CharArrayMerger</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic Group" zoom="1.0" x="69.0" y="133.5" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

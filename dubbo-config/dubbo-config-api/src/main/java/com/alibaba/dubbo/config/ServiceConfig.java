@@ -241,17 +241,20 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
         checkDefault();
         if (provider != null) {
             if (application == null) {
+//                <dubbo:application name="dubbo-provider" id="dubbo-provider" />
                 application = provider.getApplication();
             }
             if (module == null) {
                 module = provider.getModule();
             }
+//            <dubbo:registry address="zookeeper://192.168.50.251:2181" />
             if (registries == null) {
                 registries = provider.getRegistries();
             }
             if (monitor == null) {
                 monitor = provider.getMonitor();
             }
+//            <dubbo:protocol name="dubbo" port="-1" id="dubbo" />
             if (protocols == null) {
                 protocols = provider.getProtocols();
             }
@@ -279,7 +282,7 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
             }
         } else {
             try {
-//                加载接口类
+//                加载接口类 com.tianhe.lianxi.dubbo.api.HelloFacade
                 interfaceClass = Class.forName(interfaceName, true, Thread.currentThread()
                         .getContextClassLoader());
             } catch (ClassNotFoundException e) {
@@ -396,16 +399,16 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
 
         Map<String, String> map = new HashMap<String, String>();
 //        side是provider
-        map.put(Constants.SIDE_KEY, Constants.PROVIDER_SIDE);
-        map.put(Constants.DUBBO_VERSION_KEY, Version.getProtocolVersion());
+        map.put(Constants.SIDE_KEY, Constants.PROVIDER_SIDE);//"side" -> "provider"
+        map.put(Constants.DUBBO_VERSION_KEY, Version.getProtocolVersion());//"dubbo" -> "2.0.2"
 //        时间属性
         map.put(Constants.TIMESTAMP_KEY, String.valueOf(System.currentTimeMillis()));
         if (ConfigUtils.getPid() > 0) {
-            map.put(Constants.PID_KEY, String.valueOf(ConfigUtils.getPid()));
+            map.put(Constants.PID_KEY, String.valueOf(ConfigUtils.getPid()));//"pid" -> "2528"
         }
 //        从这里配置解析可以看到下面的优先级最高，后面的配置会把前面的配置覆盖
 //        application配置追加到map=》
-        appendParameters(map, application);
+        appendParameters(map, application);//"application" -> "dubbo-provider"
 //        module配置追加到map
         appendParameters(map, module);
 //        provider配置追加到map
@@ -414,6 +417,11 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
         appendParameters(map, protocolConfig);
 //        默认配置追加到map
         appendParameters(map, this);
+//        "executes" -> "200"
+// "interface" -> "com.tianhe.lianxi.dubbo.api.HelloFacade"
+// "version" -> "1.0.0"
+//        "bean.name" -> "providers:dubbo:com.tianhe.lianxi.dubbo.api.HelloFacade:1.0.0:helloGroup"
+//        "group" -> "helloGroup"
         if (methods != null && !methods.isEmpty()) {
             for (MethodConfig method : methods) {
 //                追加method的配置到map
@@ -483,13 +491,13 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
                 map.put("revision", revision);
             }
 
-//            查询接口的所有方法
+//            查询接口的所有方法 sayHello
             String[] methods = Wrapper.getWrapper(interfaceClass).getMethodNames();
             if (methods.length == 0) {
                 logger.warn("NO method found in service interface " + interfaceClass.getName());
                 map.put(Constants.METHODS_KEY, Constants.ANY_VALUE);
             } else {
-                map.put(Constants.METHODS_KEY, StringUtils.join(new HashSet<String>(Arrays.asList(methods)), ","));
+                map.put(Constants.METHODS_KEY, StringUtils.join(new HashSet<String>(Arrays.asList(methods)), ","));//"methods" -> "sayHello"
             }
         }
 //        解析token属性
@@ -511,7 +519,7 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
             contextPath = provider.getContextpath();
         }
 
-//        查询配置的host=》
+//        查询配置的host=》172.28.82.218
         String host = this.findConfigedHosts(protocolConfig, registryURLs, map);
 //        查询配置的端口=》
         Integer port = this.findConfigedPorts(protocolConfig, name, map);
@@ -530,7 +538,7 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
 
             // export to local if the config is not remote (export to remote only when config is remote) 如果配置不是远程的，导出到本地(只有配置是远程的才导出到远程)
             if (!Constants.SCOPE_REMOTE.toString().equalsIgnoreCase(scope)) {
-//                =》
+//                =》dubbo://172.28.82.218:20880/com.tianhe.lianxi.dubbo.api.HelloFacade?anyhost=true&application=dubbo-provider&bean.name=providers:dubbo:com.tianhe.lianxi.dubbo.api.HelloFacade:1.0.0:helloGroup&bind.ip=172.28.82.218&bind.port=20880&dubbo=2.0.2&executes=200&generic=false&group=helloGroup&interface=com.tianhe.lianxi.dubbo.api.HelloFacade&methods=sayHello&pid=2528&revision=1.0.0&side=provider&timestamp=1573207327686&version=1.0.0
                 exportLocal(url);
             }
             // export to remote if the config is not local (export to local only when config is local) 如果配置不是本地的，则导出到远程(仅当配置是本地的时才导出到本地)
@@ -538,6 +546,7 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
                 if (logger.isInfoEnabled()) {
                     logger.info("Export dubbo service " + interfaceClass.getName() + " to url " + url);
                 }
+//                registry://192.168.50.251:2181/com.alibaba.dubbo.registry.RegistryService?application=dubbo-provider&dubbo=2.0.2&pid=70847&registry=zookeeper&timestamp=1573208445243
                 if (registryURLs != null && !registryURLs.isEmpty()) {
                     for (URL registryURL : registryURLs) {
 //                        获取dynamic参数值
@@ -559,10 +568,12 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
                             registryURL = registryURL.addParameter(Constants.PROXY_KEY, proxy);
                         }
 
+//                        javassistProxyFactory
+//                        interface com.tianhe.lianxi.dubbo.api.HelloFacade -> registry://192.168.50.251:2181/com.alibaba.dubbo.registry.RegistryService?application=dubbo-provider&dubbo=2.0.2&export=dubbo%3A%2F%2F172.28.82.218%3A20880%2Fcom.tianhe.lianxi.dubbo.api.HelloFacade%3Fanyhost%3Dtrue%26application%3Ddubbo-provider%26bean.name%3Dproviders%3Adubbo%3Acom.tianhe.lianxi.dubbo.api.HelloFacade%3A1.0.0%3AhelloGroup%26bind.ip%3D172.28.82.218%26bind.port%3D20880%26dubbo%3D2.0.2%26executes%3D200%26generic%3Dfalse%26group%3DhelloGroup%26interface%3Dcom.tianhe.lianxi.dubbo.api.HelloFacade%26methods%3DsayHello%26pid%3D91252%26revision%3D1.0.0%26side%3Dprovider%26timestamp%3D1573208996919%26version%3D1.0.0&pid=91252&registry=zookeeper&timestamp=1573208996167
                         Invoker<?> invoker = proxyFactory.getInvoker(ref, (Class) interfaceClass, registryURL.addParameterAndEncoded(Constants.EXPORT_KEY, url.toFullString()));
                         DelegateProviderMetaDataInvoker wrapperInvoker = new DelegateProviderMetaDataInvoker(invoker, this);
 
-//                      ProtocolFilterWrapper.export服务注册=》
+//                      ProtocolFilterWrapper.export服务注册=》 DestroyableExporter
                         Exporter<?> exporter = protocol.export(wrapperInvoker);
                         exporters.add(exporter);
                     }
@@ -589,6 +600,7 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
                     .setPort(0);
             ServiceClassHolder.getInstance().pushServiceClass(getServiceClass(ref));
 //            服务注册 com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper.export=》
+//            interface com.tianhe.lianxi.dubbo.api.HelloFacade -> injvm://127.0.0.1/com.tianhe.lianxi.dubbo.api.HelloFacade?anyhost=true&application=dubbo-provider&bean.name=providers:dubbo:com.tianhe.lianxi.dubbo.api.HelloFacade:1.0.0:helloGroup&bind.ip=172.28.82.218&bind.port=20880&dubbo=2.0.2&executes=200&generic=false&group=helloGroup&interface=com.tianhe.lianxi.dubbo.api.HelloFacade&methods=sayHello&pid=2528&revision=1.0.0&side=provider&timestamp=1573207327686&version=1.0.0
             Exporter<?> exporter = protocol.export(
                     proxyFactory.getInvoker(ref, (Class) interfaceClass, local));
             exporters.add(exporter);
@@ -792,6 +804,7 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
         if (protocols == null || protocols.isEmpty()) {
             setProtocol(new ProtocolConfig());
         }
+//        <dubbo:protocol name="dubbo" port="-1" id="dubbo" />
         for (ProtocolConfig protocolConfig : protocols) {
             if (StringUtils.isEmpty(protocolConfig.getName())) {
 //                如果协议名称为空，默认dubbo协议

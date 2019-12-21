@@ -27,21 +27,10 @@ import com.alibaba.dubbo.common.utils.UrlUtils;
 import com.alibaba.dubbo.registry.NotifyListener;
 import com.alibaba.dubbo.registry.Registry;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.RandomAccessFile;
+import java.io.*;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.ExecutorService;
@@ -69,8 +58,26 @@ public abstract class AbstractRegistry implements Registry {
     private final boolean syncSaveFile;
     private final AtomicLong lastCacheChanged = new AtomicLong();
 //    注册信息地址用ConcurrentHashSet来维护，无序
+//    url dubbo://172.28.80.66:20880/com.tianhe.lianxi.dubbo.api.HelloFacade?anyhost=true&application=dubbo-provider&bean.name=providers:dubbo:
+// com.tianhe.lianxi.dubbo.api.HelloFacade:1.0.0:helloGroup&dubbo=2.0.2&executes=200&generic=false&group=helloGroup&interface=
+// com.tianhe.lianxi.dubbo.api.HelloFacade&methods=sayHello&pid=94877&revision=1.0.0&side=provider&timestamp=1573122462454&version=1.0.0
+
+//    url consumer://172.28.80.66/com.tianhe.lianxi.dubbo.api.HelloFacade?actives=200&application=dubbo-consumer&category=
+// consumers&check=false&default.check=false&default.timeout=30000&dubbo=2.0.2&group=helloGroup&interface=com.tianhe.lianxi.dubbo.api.HelloFacade&
+// methods=sayHello&pid=15694&qos.enable=false&revision=1.0.0&side=consumer&timeout=30000&timestamp=1573123013947&version=1.0.0
     private final Set<URL> registered = new ConcurrentHashSet<URL>();
 //    事件订阅关系也是用ConcurrentHashMap来保存
+//    url consumer://172.28.80.66/com.tianhe.lianxi.dubbo.api.HelloFacade?actives=200&application=dubbo-consumer&category=providers,configurators,
+// routers&check=false&default.check=false&default.timeout=30000&dubbo=2.0.2&group=helloGroup&interface=com.tianhe.lianxi.dubbo.api.HelloFacade&
+// methods=sayHello&pid=81833&qos.enable=false&revision=1.0.0&side=consumer&timeout=30000&timestamp=1573122104380&version=1.0.0
+//    listener RegistryDirectory
+
+// url provider://172.28.80.66:20880/com.tianhe.lianxi.dubbo.api.HelloFacade?anyhost=true&application=dubbo-provider&bean.name=providers:dubbo:
+// com.tianhe.lianxi.dubbo.api.HelloFacade:1.0.0:helloGroup&category=configurators&check=false&dubbo=2.0.2&executes=200&generic=false
+// &group=helloGroup&interface=com.tianhe.lianxi.dubbo.api.HelloFacade&methods=sayHello&pid=94877&revision=1.0.0&side=provider&timestamp=
+// 1573122462454&version=1.0.0
+
+//  listener  RegistryProtocol.OverrideListener
     private final ConcurrentMap<URL, Set<NotifyListener>> subscribed = new ConcurrentHashMap<URL, Set<NotifyListener>>();
     private final ConcurrentMap<URL, Map<String, List<URL>>> notified = new ConcurrentHashMap<URL, Map<String, List<URL>>>();
     private URL registryUrl;
@@ -79,8 +86,9 @@ public abstract class AbstractRegistry implements Registry {
 
     public AbstractRegistry(URL url) {
         setUrl(url);
-        // Start file save timer
+        // Start file save timer 查询注册信息保存本地文件save.file
         syncSaveFile = url.getParameter(Constants.REGISTRY_FILESAVE_SYNC_KEY, false);
+//        默认文件名 /Users/jiangweifeng/.dubbo/dubbo-registry-dubbo-provider-192.168.50.251:2181.cache
         String filename = url.getParameter(Constants.FILE_KEY, System.getProperty("user.home") + "/.dubbo/dubbo-registry-" + url.getParameter(Constants.APPLICATION_KEY) + "-" + url.getAddress() + ".cache");
         File file = null;
         if (ConfigUtils.isNotEmpty(filename)) {
@@ -92,6 +100,7 @@ public abstract class AbstractRegistry implements Registry {
             }
         }
         this.file = file;
+//        从配置文件中加载注册
         loadProperties();
         notify(url.getBackupUrls());
     }
@@ -267,6 +276,10 @@ public abstract class AbstractRegistry implements Registry {
         return result;
     }
 
+//    url dubbo://172.28.80.66:20880/com.tianhe.lianxi.dubbo.api.HelloFacade?anyhost=true&application=dubbo-provider&
+// bean.name=providers:dubbo:com.tianhe.lianxi.dubbo.api.HelloFacade:1.0.0:helloGroup&dubbo=2.0.2&executes=200&generic=false&
+// group=helloGroup&interface=com.tianhe.lianxi.dubbo.api.HelloFacade&methods=sayHello&pid=94877&revision=1.0.0&
+// side=provider&timestamp=1573122462454&version=1.0.0
     @Override
     public void register(URL url) {
         if (url == null) {
@@ -275,6 +288,7 @@ public abstract class AbstractRegistry implements Registry {
         if (logger.isInfoEnabled()) {
             logger.info("Register: " + url);
         }
+//        dubbo://172.28.82.218:20880/com.tianhe.lianxi.dubbo.api.HelloFacade?anyhost=true&application=dubbo-provider&bean.name=providers:dubbo:com.tianhe.lianxi.dubbo.api.HelloFacade:1.0.0:helloGroup&dubbo=2.0.2&executes=200&generic=false&group=helloGroup&interface=com.tianhe.lianxi.dubbo.api.HelloFacade&methods=sayHello&pid=14414&revision=1.0.0&side=provider&timestamp=1573209627465&version=1.0.0
         registered.add(url);
     }
 
@@ -289,6 +303,14 @@ public abstract class AbstractRegistry implements Registry {
         registered.remove(url);
     }
 
+// url consumer://172.28.80.66/com.tianhe.lianxi.dubbo.api.HelloFacade?actives=200&application=dubbo-consumer&category=providers,configurators,
+// routers&check=false&default.check=false&default.timeout=30000&dubbo=2.0.2&group=helloGroup&interface=com.tianhe.lianxi.dubbo.api.HelloFacade&
+// methods=sayHello&pid=81833&qos.enable=false&revision=1.0.0&side=consumer&timeout=30000&timestamp=1573122104380&version=1.0.0
+
+//    provider://172.28.80.66:20880/com.tianhe.lianxi.dubbo.api.HelloFacade?anyhost=true&application=dubbo-provider&bean.name=providers:
+// dubbo:com.tianhe.lianxi.dubbo.api.HelloFacade:1.0.0:helloGroup&category=configurators&check=false&dubbo=2.0.2&executes=200&generic=
+// false&group=helloGroup&interface=com.tianhe.lianxi.dubbo.api.HelloFacade&methods=sayHello&pid=94877&revision=1.0.0&side=provider&timestamp=
+// 1573122462454&version=1.0.0
     @Override
     public void subscribe(URL url, NotifyListener listener) {
         if (url == null) {
@@ -354,6 +376,7 @@ public abstract class AbstractRegistry implements Registry {
     protected void notify(List<URL> urls) {
         if (urls == null || urls.isEmpty()) return;
 
+//        查询订阅信息
         for (Map.Entry<URL, Set<NotifyListener>> entry : getSubscribed().entrySet()) {
             URL url = entry.getKey();
 
@@ -361,6 +384,7 @@ public abstract class AbstractRegistry implements Registry {
                 continue;
             }
 
+//            查询url的监听器
             Set<NotifyListener> listeners = entry.getValue();
             if (listeners != null) {
                 for (NotifyListener listener : listeners) {
@@ -375,6 +399,8 @@ public abstract class AbstractRegistry implements Registry {
     }
 
     protected void notify(URL url, NotifyListener listener, List<URL> urls) {
+// provider://172.28.87.51:20880/com.alibaba.dubbo.demo.DemoService?anyhost=true&application=demo-provider&bean.name=com.alibaba.dubbo.demo.DemoService&category=configurators&check=false&default.server=netty4&dubbo=2.0.2&generic=false&interface=com.alibaba.dubbo.demo.DemoService&methods=sayHello&pid=30853&side=provider&timestamp=1574156815646
+// consumer://172.28.87.51/com.alibaba.dubbo.demo.DemoService?application=demo-consumer&category=providers,configurators,routers&check=false&default.client=netty4&dubbo=2.0.2&interface=com.alibaba.dubbo.demo.DemoService&methods=sayHello&pid=98470&qos.port=33333&side=consumer&timeout=3000000&timestamp=1574153201694
         if (url == null) {
             throw new IllegalArgumentException("notify url == null");
         }
@@ -390,6 +416,7 @@ public abstract class AbstractRegistry implements Registry {
             logger.info("Notify urls for subscribe url " + url + ", urls: " + urls);
         }
         Map<String, List<URL>> result = new HashMap<String, List<URL>>();
+//        遍历注册中心地址
         for (URL u : urls) {
             if (UrlUtils.isMatch(url, u)) {
 //                查询监听器监听类别category属性值，默认providers
@@ -416,7 +443,8 @@ public abstract class AbstractRegistry implements Registry {
             List<URL> categoryList = entry.getValue();
             categoryNotified.put(category, categoryList);
             saveProperties(url);
-//            监听器处理=》
+//            监听器处理=》com.alibaba.dubbo.registry.integration.RegistryProtocol.OverrideListener.notify()
+//            com.alibaba.dubbo.registry.integration.RegistryDirectory.notify()
             listener.notify(categoryList);
         }
     }
@@ -440,10 +468,13 @@ public abstract class AbstractRegistry implements Registry {
                 }
             }
             properties.setProperty(url.getServiceKey(), buf.toString());
+//            配置文件最后一次修改的版本号
             long version = lastCacheChanged.incrementAndGet();
+//            同步保存
             if (syncSaveFile) {
-//                持久化版本
+//                nio方式保存注册信息到文件
                 doSaveProperties(version);
+//                异步保存
             } else {
                 registryCacheExecutor.execute(new SaveProperties(version));
             }

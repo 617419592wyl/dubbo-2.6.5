@@ -48,7 +48,6 @@ public class ProtocolFilterWrapper implements Protocol {
                 final Filter filter = filters.get(i);
                 final Invoker<T> next = last;
                 last = new Invoker<T>() {
-
                     @Override
                     public Class<T> getInterface() {
                         return invoker.getInterface();
@@ -99,6 +98,7 @@ public class ProtocolFilterWrapper implements Protocol {
     public <T> Exporter<T> export(Invoker<T> invoker) throws RpcException {
         if (Constants.REGISTRY_PROTOCOL.equals(invoker.getUrl().getProtocol())) {
 //          ProtocolListenerWrapper.export()
+//            DestroyableExporter
             return protocol.export(invoker);
         }
 //        com.alibaba.dubbo.rpc.protocol.ProtocolListenerWrapper.export()=》

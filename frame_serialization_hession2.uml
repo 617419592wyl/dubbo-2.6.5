@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.alibaba.dubbo.common.serialize.hessian2.Hessian2ObjectInput</OriginalElement>
+  <nodes>
+    <node x="0.0" y="222.0">com.alibaba.dubbo.common.serialize.hessian2.Hessian2ObjectInput</node>
+    <node x="0.0" y="74.0">com.alibaba.dubbo.common.serialize.hessian2.Hessian2ObjectOutput</node>
+    <node x="0.0" y="148.0">com.alibaba.dubbo.common.serialize.hessian2.Hessian2Serialization</node>
+    <node x="0.0" y="0.0">com.alibaba.dubbo.common.serialize.hessian2.Hessian2SerializerFactory</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic Group" zoom="1.0" x="80.5" y="93.5" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

@@ -35,11 +35,12 @@ public class ProviderConsumerRegTable {
 
     public static void registerProvider(Invoker invoker, URL registryUrl, URL providerUrl) {
         ProviderInvokerWrapper wrapperInvoker = new ProviderInvokerWrapper(invoker, registryUrl, providerUrl);
-//        service唯一的名字 group/interface:version
+//        service唯一的名字 group/interface:version helloGroup/com.tianhe.lianxi.dubbo.api.HelloFacade:1.0.0
         String serviceUniqueName = providerUrl.getServiceKey();
         Set<ProviderInvokerWrapper> invokers = providerInvokers.get(serviceUniqueName);
         if (invokers == null) {
             providerInvokers.putIfAbsent(serviceUniqueName, new ConcurrentHashSet<ProviderInvokerWrapper>());
+//            ProviderInvokerWrapper
             invokers = providerInvokers.get(serviceUniqueName);
         }
         invokers.add(wrapperInvoker);

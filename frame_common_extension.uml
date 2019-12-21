@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.alibaba.dubbo.common.extension.Activate</OriginalElement>
+  <nodes>
+    <node x="252.49999999999997" y="0.0">com.alibaba.dubbo.common.extension.SPI</node>
+    <node x="0.0" y="306.0">com.alibaba.dubbo.common.extension.DisableInject</node>
+    <node x="208.49999999999997" y="79.0">com.alibaba.dubbo.common.extension.ExtensionFactory</node>
+    <node x="0.0" y="232.0">com.alibaba.dubbo.common.extension.support.ActivateComparator</node>
+    <node x="0.0" y="158.0">com.alibaba.dubbo.config.spring.extension.SpringExtensionFactory</node>
+    <node x="200.0" y="232.0">com.alibaba.dubbo.common.extension.ExtensionLoader</node>
+    <node x="377.0" y="158.0">com.alibaba.dubbo.common.extension.factory.AdaptiveExtensionFactory</node>
+    <node x="198.99999999999997" y="158.0">com.alibaba.dubbo.common.extension.factory.SpiExtensionFactory</node>
+    <node x="478.75" y="79.0">com.alibaba.dubbo.common.extension.Adaptive</node>
+    <node x="154.0" y="306.0">com.alibaba.dubbo.common.extension.Activate</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.alibaba.dubbo.config.spring.extension.SpringExtensionFactory" target="com.alibaba.dubbo.common.extension.ExtensionFactory">
+      <point x="0.0" y="-14.5" />
+      <point x="89.5" y="133.0" />
+      <point x="231.66666666666663" y="133.0" />
+      <point x="-46.33333333333334" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.extension.factory.AdaptiveExtensionFactory" target="com.alibaba.dubbo.common.extension.ExtensionFactory">
+      <point x="-48.25" y="-14.5" />
+      <point x="425.25" y="133.0" />
+      <point x="324.3333333333333" y="133.0" />
+      <point x="46.33333333333334" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.extension.ExtensionFactory" target="com.alibaba.dubbo.common.extension.SPI">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.extension.factory.SpiExtensionFactory" target="com.alibaba.dubbo.common.extension.ExtensionFactory">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.extension.factory.AdaptiveExtensionFactory" target="com.alibaba.dubbo.common.extension.Adaptive">
+      <point x="48.25" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="285.0" y="167.5" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

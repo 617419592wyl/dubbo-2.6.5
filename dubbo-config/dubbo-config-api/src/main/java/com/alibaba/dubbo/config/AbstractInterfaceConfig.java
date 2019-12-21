@@ -198,12 +198,13 @@ public abstract class AbstractInterfaceConfig extends AbstractMethodConfig {
                             map.put("protocol", "dubbo");
                         }
                     }
-//                    解析address 是url类型=》
+//                    解析address 是url类型=》zookeeper://192.168.50.251:2181/com.alibaba.dubbo.registry.RegistryService?application=dubbo-provider&dubbo=2.0.2&pid=2528&timestamp=1573207113172
                     List<URL> urls = UrlUtils.parseURLs(address, map);
                     for (URL url : urls) {
 //                        url追加注册协议
                         url = url.addParameter(Constants.REGISTRY_KEY, url.getProtocol());
                         url = url.setProtocol(Constants.REGISTRY_PROTOCOL);
+//                        zookeeper://192.168.50.251:2181/com.alibaba.dubbo.registry.RegistryService?application=dubbo-provider&dubbo=2.0.2&pid=2528&timestamp=1573207113172
 //                        可以注册不订阅
                         if ((provider && url.getParameter(Constants.REGISTER_KEY, true))
                                 || (!provider && url.getParameter(Constants.SUBSCRIBE_KEY, true))) {

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.alibaba.dubbo.rpc.cluster.Cluster</OriginalElement>
+  <nodes>
+    <node x="0.0" y="79.0">com.alibaba.dubbo.rpc.cluster.directory.AbstractDirectory</node>
+    <node x="26.5" y="0.0">com.alibaba.dubbo.rpc.cluster.Directory</node>
+    <node x="9.0" y="158.0">com.alibaba.dubbo.rpc.cluster.directory.StaticDirectory</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.alibaba.dubbo.rpc.cluster.directory.AbstractDirectory" target="com.alibaba.dubbo.rpc.cluster.Directory">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.rpc.cluster.directory.StaticDirectory" target="com.alibaba.dubbo.rpc.cluster.directory.AbstractDirectory">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="402.0" y="165.5" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

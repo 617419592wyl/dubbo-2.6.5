@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.alibaba.dubbo.rpc.protocol.rest.BaseRestServer</OriginalElement>
+  <nodes>
+    <node x="351.0" y="380.0">com.alibaba.dubbo.rpc.protocol.rest.support.ContentType</node>
+    <node x="179.0" y="380.0">com.alibaba.dubbo.rpc.protocol.rest.ViolationReport</node>
+    <node x="77.25" y="79.0">com.alibaba.dubbo.rpc.protocol.rest.BaseRestServer</node>
+    <node x="160.0" y="158.0">com.alibaba.dubbo.rpc.protocol.rest.NettyServer</node>
+    <node x="0.0" y="306.0">com.alibaba.dubbo.rpc.protocol.rest.RpcExceptionMapper</node>
+    <node x="92.25" y="0.0">com.alibaba.dubbo.rpc.protocol.rest.RestServer</node>
+    <node x="0.0" y="158.0">com.alibaba.dubbo.rpc.protocol.rest.DubboHttpServer</node>
+    <node x="207.0" y="306.0">com.alibaba.dubbo.rpc.protocol.rest.RestServerFactory</node>
+    <node x="0.0" y="454.0">com.alibaba.dubbo.rpc.protocol.rest.RestProtocol</node>
+    <node x="0.0" y="232.0">com.alibaba.dubbo.rpc.protocol.rest.RestConstraintViolation</node>
+    <node x="223.0" y="232.0">com.alibaba.dubbo.rpc.protocol.rest.DubboResourceFactory</node>
+    <node x="0.0" y="380.0">com.alibaba.dubbo.rpc.protocol.rest.RpcContextFilter</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.alibaba.dubbo.rpc.protocol.rest.BaseRestServer" target="com.alibaba.dubbo.rpc.protocol.rest.RestServer">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.rpc.protocol.rest.NettyServer" target="com.alibaba.dubbo.rpc.protocol.rest.BaseRestServer">
+      <point x="0.0" y="-14.5" />
+      <point x="212.5" y="133.0" />
+      <point x="173.25" y="133.0" />
+      <point x="32.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.rpc.protocol.rest.DubboHttpServer" target="com.alibaba.dubbo.rpc.protocol.rest.BaseRestServer">
+      <point x="0.0" y="-14.5" />
+      <point x="70.0" y="133.0" />
+      <point x="109.25" y="133.0" />
+      <point x="-32.0" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="64.0" y="54.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

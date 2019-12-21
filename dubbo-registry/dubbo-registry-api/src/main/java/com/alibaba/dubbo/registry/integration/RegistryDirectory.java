@@ -214,6 +214,7 @@ public class RegistryDirectory<T> extends AbstractDirectory<T> implements Notify
         }
         List<Configurator> localConfigurators = this.configurators; // local reference
         // merge override parameters
+//        zookeeper://localhost:2181/com.alibaba.dubbo.registry.RegistryService?application=demo-consumer&check=false&default.client=netty4&dubbo=2.0.2&interface=com.alibaba.dubbo.demo.DemoService&methods=sayHello&pid=98470&qos.port=33333&register.ip=172.28.87.51&side=consumer&timeout=3000000&timestamp=1574153201694
         this.overrideDirectoryUrl = directoryUrl;
         if (localConfigurators != null && !localConfigurators.isEmpty()) {
             for (Configurator configurator : localConfigurators) {
@@ -243,6 +244,8 @@ public class RegistryDirectory<T> extends AbstractDirectory<T> implements Notify
             destroyAllInvokers(); // Close all invokers
         } else {
             this.forbidden = false; // Allow to access
+//           key dubbo://172.28.87.51:20880/com.alibaba.dubbo.demo.DemoService?anyhost=true&application=demo-consumer&bean.name=com.alibaba.dubbo.demo.DemoService&check=false&default.client=netty4&default.server=netty4&dubbo=2.0.2&generic=false&interface=com.alibaba.dubbo.demo.DemoService&methods=sayHello&pid=98470&qos.port=33333&register.ip=172.28.87.51&remote.timestamp=1574153017360&side=consumer&timeout=3000000&timestamp=1574153201694
+//           value RegistryDirectory.InvokerDelegate-ListenerInvokerWrapper-ProtocolFilterWrapper-DubboInvoker
             Map<String, Invoker<T>> oldUrlInvokerMap = this.urlInvokerMap; // local reference
             if (invokerUrls.isEmpty() && this.cachedInvokerUrls != null) {
                 invokerUrls.addAll(this.cachedInvokerUrls);
@@ -254,6 +257,7 @@ public class RegistryDirectory<T> extends AbstractDirectory<T> implements Notify
                 return;
             }
 //            根据invoker url创建代理invoker对象
+//            dubbo://172.28.87.51:20880/com.alibaba.dubbo.demo.DemoService?anyhost=true&application=demo-provider&bean.name=com.alibaba.dubbo.demo.DemoService&default.server=netty4&dubbo=2.0.2&generic=false&interface=com.alibaba.dubbo.demo.DemoService&methods=sayHello&pid=91556&side=provider&timestamp=1574153017360
             Map<String, Invoker<T>> newUrlInvokerMap = toInvokers(invokerUrls);// Translate url list to Invoker map
 //            转换调用方法的invoker
             Map<String, List<Invoker<T>>> newMethodInvokerMap = toMethodInvokers(newUrlInvokerMap); // Change method name to map Invoker Map
@@ -566,6 +570,7 @@ public class RegistryDirectory<T> extends AbstractDirectory<T> implements Notify
                     Invoker<T> invoker = oldUrlInvokerMap.remove(url);
                     if (invoker != null) {
                         try {
+//                            ListenerInvokerWrapper-ProtocolFilterWrapper-DubboInvoker
                             invoker.destroy();
                             if (logger.isDebugEnabled()) {
                                 logger.debug("destroy invoker[" + invoker.getUrl() + "] success. ");

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.alibaba.dubbo.common.serialize.java.CompactedJavaSerialization</OriginalElement>
+  <nodes>
+    <node x="0.0" y="301.0">com.alibaba.dubbo.common.serialize.java.CompactedJavaSerialization</node>
+    <node x="19.5" y="79.0">com.alibaba.dubbo.common.serialize.java.JavaObjectOutput</node>
+    <node x="247.5" y="79.0">com.alibaba.dubbo.common.serialize.java.JavaObjectInput</node>
+    <node x="0.0" y="153.0">com.alibaba.dubbo.common.serialize.java.CompactedObjectOutputStream</node>
+    <node x="218.0" y="375.0">com.alibaba.dubbo.common.serialize.java.JavaSerialization</node>
+    <node x="0.0" y="375.0">com.alibaba.dubbo.common.serialize.nativejava.NativeJavaSerialization</node>
+    <node x="0.0" y="0.0">com.alibaba.dubbo.common.serialize.nativejava.NativeJavaObjectOutput</node>
+    <node x="0.0" y="227.0">com.alibaba.dubbo.common.serialize.java.CompactedObjectInputStream</node>
+    <node x="228.0" y="0.0">com.alibaba.dubbo.common.serialize.nativejava.NativeJavaObjectInput</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.alibaba.dubbo.common.serialize.java.JavaObjectOutput" target="com.alibaba.dubbo.common.serialize.nativejava.NativeJavaObjectOutput">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.alibaba.dubbo.common.serialize.java.JavaObjectInput" target="com.alibaba.dubbo.common.serialize.nativejava.NativeJavaObjectInput">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="102.0" y="93.5" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

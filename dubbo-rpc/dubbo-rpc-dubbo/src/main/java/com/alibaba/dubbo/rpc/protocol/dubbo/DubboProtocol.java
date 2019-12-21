@@ -233,10 +233,12 @@ public class DubboProtocol extends AbstractProtocol {
 
         // export service. 查询service key=group/interface:version:port
         String key = serviceKey(url);
+//        创建DubboExporter
         DubboExporter<T> exporter = new DubboExporter<T>(invoker, key, exporterMap);
         exporterMap.put(key, exporter);
 
-        //export an stub service for dispatching event
+        //export an stub service for dispatching event导出调度事件的存根服务
+//        stub服务是在客户端调用服务端服务之前或者之后执行客户端的逻辑
         Boolean isStubSupportEvent = url.getParameter(Constants.STUB_EVENT_KEY, Constants.DEFAULT_STUB_EVENT);
         Boolean isCallbackservice = url.getParameter(Constants.IS_CALLBACK_SERVICE, false);
         if (isStubSupportEvent && !isCallbackservice) {
@@ -263,6 +265,7 @@ public class DubboProtocol extends AbstractProtocol {
         String key = url.getAddress();
         //client can export a service which's only for server to invoke 客户端可以导出仅供服务器调用的服务
         boolean isServer = url.getParameter(Constants.IS_SERVER_KEY, true);
+//        如果是服务端去本地缓存中查找exchangeServer，如果缓存中没有就创建server存储到本地缓存map中
         if (isServer) {
             ExchangeServer server = serverMap.get(key);
             if (server == null) {
@@ -276,10 +279,10 @@ public class DubboProtocol extends AbstractProtocol {
     }
 
     private ExchangeServer createServer(URL url) {
-        // send readonly event when server closes, it's enabled by default 服务器关闭时发送只读事件，默认情况下启用
+        // send readonly event when server closes, it's enabled by default channel.readonly.sent 服务器关闭时发送只读事件，默认情况下启用
         url = url.addParameterIfAbsent(Constants.CHANNEL_READONLYEVENT_SENT_KEY, Boolean.TRUE.toString());
         // enable heartbeat by default
-//        默认心跳检测时间 6s
+//        默认心跳检测时间heartbeat 6s
         url = url.addParameterIfAbsent(Constants.HEARTBEAT_KEY, String.valueOf(Constants.DEFAULT_HEARTBEAT));
 //        server值默认是netty
         String str = url.getParameter(Constants.SERVER_KEY, Constants.DEFAULT_REMOTING_SERVER);
@@ -296,6 +299,7 @@ public class DubboProtocol extends AbstractProtocol {
         } catch (RemotingException e) {
             throw new RpcException("Fail to start server(url: " + url + ") " + e.getMessage(), e);
         }
+//        解析client参数
         str = url.getParameter(Constants.CLIENT_KEY);
         if (str != null && str.length() > 0) {
             Set<String> supportedTypes = ExtensionLoader.getExtensionLoader(Transporter.class).getSupportedExtensions();
